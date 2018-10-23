@@ -1,7 +1,8 @@
+<%= require 'active_support/core_ext/object/try' %>
 <p id="notice"><%= notice %></p>
 
 <h1>Maps</h1>
-
+ <div id=map></div>
 <table>
   <thead>
     <tr>
@@ -20,6 +21,7 @@
         <td><%= map.small_category %></td>
         <td><%= map.business_hours %></td>
         <td><%= map.regular_holiday %></td>
+        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,3 +30,44 @@
 <br>
 
 <%= link_to 'New Map', new_map_path %>
+
+<script type="text/javascript">
+  function initMap() {
+    <% @maps.each do |map| %>
+        if( <%= map.station_name.try(:include?, "駅") %> ) {
+          var latlng = {lat: <%= map.latitude %>, lng: <%= map.longitude %>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: latlng
+          });
+          var transitLayer = new google.maps.TransitLayer();
+          transitLayer.setMap(map);
+        }
+    <% end %>
+
+      <% @maps.each do |map| %>
+        (function(){
+          var address = "住所：<%= map.address %>";
+          var store_name = "<%= map.store_name %>";
+          var infowindow = new google.maps.InfoWindow({
+            content: "店名: <%= map.store_name %><br><%= map.address %>"
+          });
+
+          var marker = new google.maps.Marker({
+            position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
+            map: map,
+            title: store_name,
+            icon: null,
+            animation: null
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        })();
+
+  <% end %>
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
+</script>
