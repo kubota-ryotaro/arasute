@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Station name:</strong>
+  <%= @map.station_name %>
+</p>
+
+<p>
+  <strong>Large category:</strong>
+  <%= @map.large_category %>
+</p>
+
+<p>
+  <strong>Small category:</strong>
+  <%= @map.small_category %>
+</p>
+
+<p>
+  <strong>Store name:</strong>
+  <%= @map.store_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @map.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @map.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @map.longitude %>
+</p>
+
+<p>
+  <strong>Business hours:</strong>
+  <%= @map.business_hours %>
+</p>
+
+<p>
+  <strong>Regular holiday:</strong>
+  <%= @map.regular_holiday %>
+</p>
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>
