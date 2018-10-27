@@ -29,8 +29,7 @@
     <tr>
       <th>店名</th>
       <th>カテゴリ</th>
-      <th>営業時間</th>
-      <th>定休日</th>
+      <th>タグ</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -38,9 +37,8 @@
     <% @maps.each do |map| %>
       <tr>
         <td><%= map.store_name %></td>
+        <td><%= map.large_category %></td>
         <td><%= map.small_category %></td>
-        <td><%= map.business_hours %></td>
-        <td><%= map.regular_holiday %></td>
       </tr>
     <% end %>
   </tbody>
