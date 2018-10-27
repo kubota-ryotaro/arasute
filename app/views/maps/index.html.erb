@@ -1,8 +1,23 @@
-<%= require 'active_support/core_ext/object/try' %>
-<p id="notice"><%= notice %></p>
-
 <h1>Maps</h1>
- <div id=map></div>
+
+<!-- 駅名で絞り込む -->
+<%= form_tag maps_path, :method => 'get' do %>
+  <div>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "検索", :name => nil %>
+  </div>
+  <div>
+    <%= "#{params[:search]}駅周辺" %>
+  </div>
+<% end %>
+
+<!-- 地図を表示 -->
+<% if params[:search].present? %>
+  <div id=map></div>
+<% else %>
+  <div id=map hidden></div>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -13,7 +28,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @maps.each do |map| %>
       <tr>
@@ -21,18 +35,15 @@
         <td><%= map.small_category %></td>
         <td><%= map.business_hours %></td>
         <td><%= map.regular_holiday %></td>
-        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Map', new_map_path %>
-
+<!-- GoogleMapsAPIのセッティング -->
 <script type="text/javascript">
   function initMap() {
+    // 入力した駅を中心とする地図のセッティング
     <% @maps.each do |map| %>
         if( <%= map.station_name.try(:include?, "駅") %> ) {
           var latlng = {lat: <%= map.latitude %>, lng: <%= map.longitude %>};
@@ -45,14 +56,14 @@
         }
     <% end %>
 
+      // 入力した駅にヒットしたそれぞれの店を出力していく。
       <% @maps.each do |map| %>
         (function(){
           var address = "住所：<%= map.address %>";
           var store_name = "<%= map.store_name %>";
-          var infowindow = new google.maps.InfoWindow({
-            content: "店名: <%= map.store_name %><br><%= map.address %>"
-          });
+          var infowindow = new google.maps.InfoWindow({ content: "店名: <%= map.store_name %><br><%= map.address %>" });
 
+          // マーカーの設定
           var marker = new google.maps.Marker({
             position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
             map: map,
@@ -60,11 +71,16 @@
             icon: null,
             animation: null
           });
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-        })();
 
+          // 駅のマーカーだけアイコンを変える。
+          if( <%= map.station_name.try(:include?, "駅") %>) {
+            marker.animation = google.maps.Animation.BOUNCE
+            marker.icon = { url: '<%= asset_path 'icon.png' %>' }
+          }
+
+          // クリックしたら吹き出しを出力し、店名と住所を表示する。
+          marker.addListener('click', function() { infowindow.open(map, marker); });
+        })();
   <% end %>
   }
 </script>
