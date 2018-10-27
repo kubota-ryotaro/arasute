@@ -1,3 +1,51 @@
 // Place all the styles related to the Maps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  text-align: center;
+  width: 90%;
+}
+
+#title{
+  font-size: 30px;
+  padding: 20px 0px 30px;
+  background: #CCFF99;
+}
+
+.space:before {
+  content: "\A";
+  white-space: pre; /* ←あわせてこれを指定しないと改行しない場合があるらしい */
+}
+
+#sub_title{
+  font-size: 15px;
+}
+
+#searchbox{
+  background: skyblue;
+  padding: 20px 0px 20px;
+  margin:  0 auto;
+}
+
+.search{
+  font-size: 20px;
+}
+
+#map{
+  height: 400px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+  width: 80%;
+}
+
+
+
+
+
+
+
+
+
+

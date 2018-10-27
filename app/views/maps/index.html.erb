@@ -1,10 +1,16 @@
-<h1>Maps</h1>
+<div id=title>
+  Around the station<br>
+  <span id=sub_title> ~駅周辺のお店を検索！ ~</span>
+</div>
+
+<div class=space></div>
 
 <!-- 駅名で絞り込む -->
 <%= form_tag maps_path, :method => 'get' do %>
-  <div>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "検索", :name => nil %>
+  <div id=searchbox>
+    <%= text_field_tag :search, params[:search], class: 'search' %>
+    <%= text_field_tag :test %>
+    <%= submit_tag "検索", class: 'search', :name => nil %>
   </div>
   <div>
     <%= "#{params[:search]}駅周辺" %>
