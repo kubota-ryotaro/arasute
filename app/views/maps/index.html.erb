@@ -24,9 +24,11 @@
   <div id=map hidden></div>
 <% end %>
 
+<!-- テーブル作成 -->
 <table>
   <thead>
     <tr>
+      <th>画像</th>
       <th>店名</th>
       <th>カテゴリ</th>
       <th>タグ</th>
@@ -36,8 +38,17 @@
   <tbody>
     <% @maps.each do |map| %>
       <tr>
+        <!-- 画像の挿入 -->
+        <td>
+          <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
+            <%= image_tag map.store_name, :size => "170x120" %>
+          <% end %>
+        </td>
+        <!-- 店名 -->
         <td><%= map.store_name %></td>
-        <td><%= map.large_category %></td>
+        <!-- カテゴリ -->
+        <td id=td_test><%= map.large_category %></td>
+        <!-- タグ -->
         <td><%= map.small_category %></td>
       </tr>
     <% end %>
