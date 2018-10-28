@@ -3,14 +3,13 @@
   Around the station<br>
   <span id=sub_title> ~駅周辺のお店を検索！ ~</span>
 </div>
-
 <div class=space></div>
 
 <!-- 駅名で絞り込む -->
 <%= form_tag maps_path, :method => 'get' do %>
   <div id=searchbox>
     <%= text_field_tag :search, params[:search], class: 'search' %>
-    <%= text_field_tag :test %>
+    <%= text_field_tag :category, params[:category], class: 'search'%>
     <%= submit_tag "検索", class: 'search', :name => nil %>
   </div>
 <% end %>
@@ -19,48 +18,53 @@
 <div id=num_search_result>検索結果 <%= @maps.length - 1 %>件</div>
 
 <!-- 地図を表示 -->
-<% if params[:search].present? %>
+<% if params[:search].present? or params[:category].present? %>
   <div id=map></div>
 <% else %>
   <div id=map hidden></div>
 <% end %>
 
 <!-- テーブル作成 -->
-<table>
-  <thead>
-    <tr>
-      <th>画像</th>
-      <th>店名</th>
-      <th>カテゴリ</th>
-      <th>タグ</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @maps.each do |map| %>
+<div id=table_data>
+  <table>
+    <thead>
       <tr>
-        <!-- 画像の挿入 -->
-        <td>
-          <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
-            <%= image_tag map.store_name, :size => "170x120" %>
-          <% end %>
-        </td>
-        <!-- 店名 -->
-        <td><%= map.store_name %></td>
-        <!-- カテゴリ -->
-        <td id=td_test><%= map.large_category %></td>
-        <!-- タグ -->
-        <td><%= map.small_category %></td>
+        <th>画像</th>
+        <th>店名</th>
+        <th>カテゴリ</th>
+        <th>タグ</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @maps.each do |map| %>
+        <tr>
+          <% if map.store_name.present? %>
+            <!-- 画像の挿入 -->
+            <td>
+              <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
+                <%= image_tag map.store_name, :size => "170x120" %>
+              <% end %>
+            </td>
+            <!-- 店名 -->
+            <td><%= map.store_name %></td>
+            <!-- カテゴリ -->
+            <td id=td_test><%= map.large_category %></td>
+            <!-- タグ -->
+            <td><%= map.small_category %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <!-- GoogleMapsAPIのセッティング -->
 <script type="text/javascript">
   function initMap() {
     // 入力した駅を中心とする地図のセッティング
     <% @maps.each do |map| %>
+          console.log('bbbbb')
         if( <%= map.station_name.try(:include?, "駅") %> ) {
           var latlng = {lat: <%= map.latitude %>, lng: <%= map.longitude %>};
           var map = new google.maps.Map(document.getElementById('map'), {
@@ -69,6 +73,7 @@
           });
           var transitLayer = new google.maps.TransitLayer();
           transitLayer.setMap(map);
+          console.log('aaaaaaaa')
         }
     <% end %>
 

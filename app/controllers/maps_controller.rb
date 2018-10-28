@@ -4,7 +4,7 @@ class MapsController < ApplicationController
   # GET /maps
   # GET /maps.json
   def index
-    @maps = Map.search(params[:search])
+    @maps = Map.search(params[:search],params[:category])
   end
 
   # GET /maps/1
