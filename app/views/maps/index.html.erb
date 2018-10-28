@@ -1,3 +1,4 @@
+<!-- タイトルを表示 -->
 <div id=title>
   Around the station<br>
   <span id=sub_title> ~駅周辺のお店を検索！ ~</span>
@@ -12,10 +13,10 @@
     <%= text_field_tag :test %>
     <%= submit_tag "検索", class: 'search', :name => nil %>
   </div>
-  <div>
-    <%= "#{params[:search]}駅周辺" %>
-  </div>
 <% end %>
+
+<!-- 検索結果数を表示 -->
+<div id=num_search_result>検索結果 <%= @maps.length - 1 %>件</div>
 
 <!-- 地図を表示 -->
 <% if params[:search].present? %>
