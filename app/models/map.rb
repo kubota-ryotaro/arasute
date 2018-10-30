@@ -12,6 +12,7 @@ class Map < ApplicationRecord
 
   def self.search(search, category) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータにおいて、titleカラムを部分一致で絞り込む
+      search.gsub!('駅', '') if search.include?('駅')
       Map.where('station_name LIKE ? and large_category LIKE ?', "%#{search}%", "%#{category}%")
     else
       Map.all #全て表示。
