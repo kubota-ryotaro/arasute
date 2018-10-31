@@ -20,13 +20,11 @@
         ["ショッピングモール"],
         ["CD/DVD レンタルショップ"],
         ["家電量販店"]
-      ]), :prompt => params[:category], class: 'search' %>
+    ]), :prompt => params[:category], class: 'search' %>
     <%= submit_tag "検索", class: 'search', :name => nil %>
   </div>
 <% end %>
-
-<!-- 検索結果数を表示 -->
-<div id=num_search_result>検索結果 <%= @maps.length - 1 %>件</div>
+<p>memo memo memo<%= "#{params[:search]}"  %></p>
 
 <!-- 地図を表示 -->
 <% if params[:search].present? %>
@@ -35,39 +33,32 @@
   <div id=map hidden></div>
 <% end %>
 
-<!-- テーブル作成 -->
-<div id=table_data>
-  <table>
-    <thead>
-      <tr>
-        <th>画像</th>
-        <th>店名</th>
-        <th>カテゴリ</th>
-        <th>タグ</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @maps.each do |map| %>
-        <tr>
-          <% if map.store_name.present? %>
-            <!-- 画像の挿入 -->
-            <td>
-              <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
-                <%= image_tag map.store_name, :size => "170x120" %>
-              <% end %>
-            </td>
-            <!-- 店名 -->
-            <td><%= map.store_name %></td>
-            <!-- カテゴリ -->
-            <td id=td_test><%= map.large_category %></td>
-            <!-- タグ -->
-            <td><%= map.small_category %></td>
+<!-- コンテンツ作成 -->
+<div id='content'>
+  <ul class="contents">
+    <div id=search_result>検索結果 <%= @maps.length - 1 %>件</div>
+    <% @maps.each do |map| %>
+      <% if map.store_name.present? %>
+        <li class='content'>
+          <!-- 画像と店名の挿入 -->
+          <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
+            <div class="image_div">
+              <p class='store_info_hot'><a href="ここにリンク先"><%= image_tag map.store_name, :size => "170x120" %>
+              <%= map.store_name %>
+              </a></p>
+            </div>
           <% end %>
-        </tr>
+          <div class='store_info_hot'>
+            <a href="ここにリンク先" class="">
+            <!-- カテゴリとタグの挿入 -->
+              <p><%= map.large_category %></p>
+              <p><%= map.small_category %></p>
+            </a>
+          </div>
+        </li>
       <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </ul>
 </div>
 
 <!-- GoogleMapsAPIのセッティング -->

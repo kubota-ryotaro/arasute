@@ -45,19 +45,18 @@ body{
   width: 60%;
 }
 
-table{
-  margin-left: auto;
-  margin-right: auto;
+/* コンテンツ */
+.contents{
+  background: #FFFAF0;
 }
 
-#table_data{
-  background: #f8f8f7;
-  margin: 20px 0px 15px;
+.content{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 14px;
+  margin-top: 25px;
+  width: 170px;
 }
-
-
-
-
 
 
 
