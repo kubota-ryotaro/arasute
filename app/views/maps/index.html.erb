@@ -14,7 +14,12 @@
 <!-- 駅名とカテゴリで絞り込む -->
 <%= form_tag maps_path, :method => 'get' do %>
   <div id=searchbox>
-    <%= text_field_tag :search, params[:search], class: 'search' %>
+    <%= select_tag :search, options_for_select([
+        ["吉祥寺"],
+        ["下北沢"],
+        ["渋谷"],
+    ]), :multiple =>true, class: 'search' %>
+
     <%= select_tag :category, options_for_select([
         ["飲食"],
         ["ショッピングモール"],
@@ -24,7 +29,6 @@
     <%= submit_tag "検索", class: 'search', :name => nil %>
   </div>
 <% end %>
-<p>memo memo memo<%= "#{params[:search]}"  %></p>
 
 <!-- 地図を表示 -->
 <% if params[:search].present? %>
@@ -35,30 +39,36 @@
 
 <!-- コンテンツ作成 -->
 <div id='content'>
-  <ul class="contents">
-    <div id=search_result>検索結果 <%= @maps.length - 1 %>件</div>
-    <% @maps.each do |map| %>
-      <% if map.store_name.present? %>
-        <li class='content'>
-          <!-- 画像と店名の挿入 -->
-          <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
-            <div class="image_div">
-              <p class='store_info_hot'><a href="ここにリンク先"><%= image_tag map.store_name, :size => "170x120" %>
-              <%= map.store_name %>
-              </a></p>
+  <!-- 入力した駅の数だけdivを作る。 -->
+  <% @maps_station_num.each do |station, num| %>
+    <ul class="contents">
+      <!-- 駅名とカテゴリと検索結果数を表示 -->
+      <div id=search_result><%= station %>駅 <span><%= params[:category] if params[:category].present? %></span> 検索結果 <%= num %>件</div>
+      <% @maps.each do |map| %>
+        <!-- 駅名ごとに振り分ける。 -->
+        <% if map.store_name.present? and map.station_name === station %>
+          <li class='content'>
+            <!-- 画像と店名の挿入 -->
+            <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
+              <div class="image_div">
+                <p class='store_info_hot'><a href="ここにリンク先"><%= image_tag map.store_name, :size => "170x120" %>
+                <%= map.store_name %>
+                </a></p>
+              </div>
+            <% end %>
+            <div class='store_info_hot'>
+              <a href="ここにリンク先" class="">
+                <!-- カテゴリとタグの挿入 -->
+                <p><%= map.station_name %></p>
+                <p><%= map.large_category %></p>
+                <p><%= map.small_category %></p>
+              </a>
             </div>
-          <% end %>
-          <div class='store_info_hot'>
-            <a href="ここにリンク先" class="">
-            <!-- カテゴリとタグの挿入 -->
-              <p><%= map.large_category %></p>
-              <p><%= map.small_category %></p>
-            </a>
-          </div>
-        </li>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  <% end %>
 </div>
 
 <!-- GoogleMapsAPIのセッティング -->

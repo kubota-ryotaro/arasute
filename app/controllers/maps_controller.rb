@@ -5,6 +5,7 @@ class MapsController < ApplicationController
   # GET /maps.json
   def index
     @maps = Map.search(params[:search],params[:category])
+    @maps_station_num = Map.station_num(params[:search],params[:category])
   end
 
   # GET /maps/1
