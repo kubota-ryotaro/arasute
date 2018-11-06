@@ -12,7 +12,6 @@
   Around the station<br>
   <span id=sub_title> ~駅周辺のお店を検索！ ~</span>
 </div>
-<div class=space></div>
 
 <!-- 駅名とカテゴリで絞り込む -->
 <%= form_tag maps_path, :method => 'get' do %>
@@ -33,10 +32,6 @@
   </div>
 <% end %>
 
-
-
-
-
 <!-- 地図を表示 -->
 <% if params[:search].present? %>
   <div id=map></div>
@@ -50,10 +45,9 @@
   <% @maps_station_num.each do |station, num| %>
     <ul class="contents">
       <!-- 駅名とカテゴリと検索結果数を表示 -->
-      <div id=search_result><%= station %>駅 <span><%= params[:category] if params[:category].present? %></span> 検索結果 <%= num %>件</div>
+      <div id=search_result><%= station %>駅<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
       <% @maps.each do |map| %>
-        <!-- 駅名ごとに振り分ける。 -->
-        <% if map.store_name.present? and map.station_name === station %>
+        <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
           <li class='content'>
             <!-- 画像と店名の挿入 -->
             <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>

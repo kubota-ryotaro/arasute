@@ -10,12 +10,8 @@ body{
 #title{
   font-size: 30px;
   padding: 20px 0px 15px;
+  margin-bottom: 20px;
   background: #CCFF99;
-}
-
-.space:before {
-  content: "\A";
-  white-space: pre; /* ←あわせてこれを指定しないと改行しない場合があるらしい */
 }
 
 #sub_title{
@@ -68,6 +64,17 @@ input.search{
 }
 
 /* コンテンツ */
+#search_result{
+  font-size: 20px;
+  font-weight: 900;
+  padding-top: 10px;
+}
+
+.space:before {
+  white-space: pre-wrap;
+  content: "  ";
+}
+
 .contents{
   background: #FFFAF0;
 }
