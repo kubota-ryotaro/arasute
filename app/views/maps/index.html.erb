@@ -52,18 +52,17 @@
             <!-- 画像と店名の挿入 -->
             <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
               <div class="image_div">
-                <p class='store_info_hot'><a href="ここにリンク先"><%= image_tag map.store_name, :size => "170x120" %>
-                <%= map.store_name %>
-                </a></p>
+                <%= link_to map do %>
+                  <p><%= image_tag map.store_name, :size => "170x120" %></P>
+                <% end %>
               </div>
             <% end %>
             <div class='store_info_hot'>
-              <a href="ここにリンク先" class="">
-                <!-- カテゴリとタグの挿入 -->
-                <p><%= map.station_name %></p>
-                <p><%= map.large_category %></p>
+              <%= link_to map do %>
+                <p><%= map.store_name %></p>
                 <p><%= map.small_category %></p>
-              </a>
+                <p><%= map.address %></p>
+              <% end %>
             </div>
           </li>
         <% end %>
