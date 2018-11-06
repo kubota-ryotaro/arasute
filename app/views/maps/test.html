@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multiselect-widget/3.0.0/jquery.multiselect.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style type="text/css">
+div.ui-multiselect-menu {
+  display: none;
+}
+      div.ui-helper-clearfix {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      jQuery(function($) {
+        jQuery("#multiSelectSample1").multiselect({
+          header: true,
+          height:175,
+          minWidth:225,
+          noneSelectedText: "駅を選択してください",
+          selectedText:"# 個選択",
+          selectedList: 3,
+          autoopen:true,
+          multiple:true
+        });
+      });
+    </script>
+    <div style="background-color:#CCC; padding:20px;">
+      <select id="multiSelectSample1" multiple="multiple" size="7">
+        <option value="option1">項目1</option>
+        <option value="option2">項目2</option>
+        <option value="option3">項目3</option>
+        <option value="option4">項目4</option>
+        <option value="option5">項目5</option>
+        <option value="option6">項目6</option>
+        <option value="option7">項目7</option>
+      </select>
+    </div>
+    <p> aaaaa </p>
+  </body>
+</html>
