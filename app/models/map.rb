@@ -1,5 +1,8 @@
 class Map < ApplicationRecord
   after_validation :geocode
+  has_many_attached :images
+  # ここで暗黙の関連付けを複数形にしていることに注意
+  scope :with_eager_loaded_images, -> { eager_load(images_attachments: :blob) }
 
   private
   def geocode

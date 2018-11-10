@@ -20,9 +20,32 @@
   <%= @map.longitude %>
 </p>
 
+<!-- 大画像 -->
+<%= image_tag "#{@map.store_name}/main.jpg", id: 'image_function', :size => "400x300" %>
+
+<!-- 複数の小画像 -->
+<% if File.exist?("#{Rails.root}/app/assets/images/#{@map.store_name}") %>
+  <div id='image_div'>
+    <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.store_name}/*.png").count.times do |i| %>
+      <div class='image'><%= image_tag "#{@map.store_name}/#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "120x90" %></div>
+    <% end %>
+  </div>
+<% end %>
+
+<!-- 小画像をクリックする度に大画像に反映させる。  -->
+<script>
+  function slideshow(param){
+    str = document.getElementById("image" + param).src      // クリックした画像のファイルパスを取得
+    index = str.indexOf('assets')                           // 文字列に対するassetsの番号を取得する。
+    str = str.slice(index - 1);                             // /assets/以下の文字列だけ抽出する。
+    document.getElementById("image_function").src=(str);    // クリックした画像のファイルパスを大画像に反映させる。
+  }
+</script>
+
 <%= link_to 'Edit', edit_map_path(@map) %> |
 <%= link_to 'Back', maps_path %>
 
+<!-- 地図を表示する。 -->
 <div id=map></div>
 <script type="text/javascript">
   function initMap() {

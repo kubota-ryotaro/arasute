@@ -70,6 +70,6 @@ class MapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
-      params.require(:map).permit(:station_name, :large_category, :small_category, :store_name, :address, :latitude, :longitude, :business_hours, :regular_holiday)
+      params.require(:map).permit(:station_name, :large_category, :small_category, :store_name, :address, :latitude, :longitude, :business_hours, :regular_holiday, images: [])
     end
 end
