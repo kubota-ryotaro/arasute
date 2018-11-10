@@ -1,37 +1,3 @@
-<head>
-  <meta charset="utf-8">
-  <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multiselect-widget/3.0.0/jquery.multiselect.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<%= javascript_include_tag "map.js" %>
-</head>
-
-<!-- タイトルを表示 -->
-<div id=title>
-  Around the station<br>
-  <span id=sub_title> ~駅周辺のお店を検索！ ~</span>
-</div>
-
-<!-- 駅名とカテゴリで絞り込む -->
-<%= form_tag maps_path, :method => 'get' do %>
-  <div id=searchbox>
-    <%= select_tag :search, options_for_select([
-        ["吉祥寺"],
-        ["下北沢"],
-        ["渋谷"],
-    ]), :multiple =>true, class: 'search' %>
-
-    <%= select_tag :category, options_for_select([
-        ["飲食"],
-        ["ショッピングモール"],
-        ["CD/DVD レンタルショップ"],
-        ["家電量販店"]
-    ]), :prompt => params[:category], class: 'search' %>
-    <%= submit_tag "検索", class: 'search', :name => nil %>
-  </div>
-<% end %>
-
 <!-- 地図を表示 -->
 <% if params[:search].present? %>
   <div id=map></div>
