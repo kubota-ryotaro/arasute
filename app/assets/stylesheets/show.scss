@@ -5,30 +5,79 @@
 body{
   text-align: center;
   width: 80%;
-  background: #FFD5EC;
+  margin-right: auto;
+  margin-left : auto;
+  background-image: image-url("kabe.jpg");
+}
+
+.br::before{
+	content: "\A";
+	white-space: pre;
+}
+
+#image_function{
+  max-width: 100%;
+  height: auto;
 }
 
 .image{
   display: inline-block;
-  padding: 10px;
-
+  padding: 5px;
 }
 
-#image_function{
-//background-image: image-url("icon.png");
+#detail{
+  margin: 10px 0px 10px 0px;
+  overflow: hidden;
 }
 
-#container{
-  height:100px;
-  width:100px;
-  border:3px;
-  background-image: image-url("1.png");
+#detail_content_images{
+  width: 40%;
+  float: left;
 }
 
-#origin{
-  height:100px;
-  width:100px;
+#detail_content_table{
+  width: 59%;
+  float: right;
+  background-color:rgba(255,255,255,0.7);
+}
 
+.detail_content_item{
+  word-wrap: break-word;
+  width: 100%;
+  white-space: normal;
+  display: block;
+  margin: 0px 20px 30px 30px;
+}
+
+.item_dt{
+  font-weight: bold;
+  display: block;
+  float: left;
+}
+
+.item_dd{
+  text-align: left;
+  width: 79%;
+}
+
+#text{
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+#text p{
+  font-size: 16px;
+  line-height: 140%
+}
+
+#detail_content_storename{
+  font-size: 45px;
+  margin-top: 20px;
+}
+
+#map{
+  height: 200px;
 }
 
 

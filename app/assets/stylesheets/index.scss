@@ -1,0 +1,87 @@
+// Place all the styles related to the Maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#title{
+  font-size: 30px;
+  padding: 20px 0px 15px;
+  margin-bottom: 20px;
+  background: #CCFF99;
+}
+
+#sub_title{
+  font-size: 15px;
+}
+
+#searchbox{
+  background: skyblue;
+  padding: 20px 0px 20px;
+  margin:  0 auto;
+}
+
+.ui-multiselect-menu.ui-widget.ui-widget-content.ui-corner-all {
+  display: none;
+}
+
+.ui-multiselect-header.ui-widget-header.ui-corner-all.ui-helper-clearfix {
+  display: none;
+}
+
+.ui-helper-reset {
+  text-align:left;
+}
+
+#search_ms{
+  font-size: 20px;
+  border-radius: 5px;
+  text-align:left;
+}
+
+#category{
+  font-size: 20px;
+  height: 35px;
+}
+
+input.search{
+  font-size: 20px;
+  background: -moz-linear-gradient(top, #C0C0C0, #FFF);
+  background: -webkit-linear-gradient(top, #C0C0C0, #FFF);
+  background: linear-gradient(to bottom, #C0C0C0, #FFF);
+  border-radius: 5px;
+}
+
+#map{
+  height: 350px;
+  margin-right: auto;
+  text-align: left;
+  width: 60%;
+  margin: 12px auto;
+}
+
+/* コンテンツ */
+#search_result{
+  font-size: 20px;
+  font-weight: 900;
+  padding-top: 10px;
+}
+
+.space:before {
+  white-space: pre-wrap;
+  content: "  ";
+}
+
+.contents{
+  background: #FFFAF0;
+}
+
+.content{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 14px;
+  margin-top: 25px;
+  width: 170px;
+}
+
+
+
