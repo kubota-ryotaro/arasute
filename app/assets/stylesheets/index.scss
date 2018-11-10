@@ -15,7 +15,7 @@
 }
 
 #searchbox{
-  background: skyblue;
+  background-color:rgba(lightblue,0.7);
   padding: 20px 0px 20px;
   margin:  0 auto;
 }
@@ -43,14 +43,6 @@
   height: 35px;
 }
 
-input.search{
-  font-size: 20px;
-  background: -moz-linear-gradient(top, #C0C0C0, #FFF);
-  background: -webkit-linear-gradient(top, #C0C0C0, #FFF);
-  background: linear-gradient(to bottom, #C0C0C0, #FFF);
-  border-radius: 5px;
-}
-
 #map{
   height: 350px;
   margin-right: auto;
@@ -72,7 +64,7 @@ input.search{
 }
 
 .contents{
-  background: #FFFAF0;
+  background-color:rgba(255,255,255,0.7);
 }
 
 .content{
