@@ -27,7 +27,7 @@
     <dl class='detail_content_item'>
       <dt class='item_dt'>住所:</dt>
       <dd class='item_dd'><%= @map.address %></dd>
-      <div id='map'></div>
+      <div id='map_show'></div>
     </dl>
 
     <dl class='detail_content_item'>
@@ -69,7 +69,7 @@
   function initMap() {
 
     var test = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map_show'), {
       zoom: 15,
       center: test
     });

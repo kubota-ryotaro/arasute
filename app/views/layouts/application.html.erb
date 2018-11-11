@@ -15,28 +15,23 @@
   </head>
 
   <body>
-    <!-- タイトルを表示 -->
+    <!-- ナビバーを表示 -->
     <div id='navbar'>
-      <div id='title'>
-        Around the station<br>
-        <span id='sub_title'> ~駅周辺のお店を検索！ ~</span>
-      </div>
-      <!-- 駅名とカテゴリで絞り込む -->
-      <%= form_tag maps_path, :method => 'get' do %>
+      <%= image_tag "logo.png", id: 'logo' %>                   <!-- ロゴ画像を挿入 -->
+      <%= form_tag maps_path, :method => 'get' do %>            <!-- 駅名とカテゴリで絞り込む -->
         <div id='searchbox'>
           <%= select_tag :search, options_for_select([
             ["吉祥寺"],
             ["下北沢"],
             ["渋谷"],
           ]), :multiple =>true, class: 'search' %>
-
         <%= select_tag :category, options_for_select([
           ["飲食"],
           ["ショッピングモール"],
           ["CD/DVD レンタルショップ"],
           ["家電量販店"]
         ]), :prompt => params[:category], class: 'search' %>
-      <%= submit_tag "検索", class: 'search', :name => nil %>
+      <%= submit_tag "検索", id: 'submit_btn', :name => nil %>
         </div>
       <% end %>
     </div>

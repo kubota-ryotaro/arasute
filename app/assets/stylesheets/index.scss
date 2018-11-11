@@ -2,51 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-#title{
-  font-size: 30px;
-  padding: 20px 0px 15px;
-  margin-bottom: 20px;
-  background: #CCFF99;
-}
-
-#sub_title{
-  font-size: 15px;
-}
-
-#searchbox{
-  background-color:rgba(lightblue,0.7);
-  padding: 20px 0px 20px;
-  margin:  0 auto;
-}
-
-.ui-multiselect-menu.ui-widget.ui-widget-content.ui-corner-all {
-  display: none;
-}
-
-.ui-multiselect-header.ui-widget-header.ui-corner-all.ui-helper-clearfix {
-  display: none;
-}
-
-.ui-helper-reset {
-  text-align:left;
-}
-
-#search_ms{
-  font-size: 20px;
-  border-radius: 5px;
-  text-align:left;
-}
-
-#category{
-  font-size: 20px;
-  height: 35px;
-}
-
-#map{
-  height: 350px;
-  margin-right: auto;
-  text-align: left;
+#map_idx{
+  height: 280px;
   width: 60%;
   margin: 12px auto;
 }
@@ -74,6 +31,4 @@
   margin-top: 25px;
   width: 170px;
 }
-
-
 

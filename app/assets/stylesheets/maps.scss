@@ -1,0 +1,44 @@
+#navbar{
+  overflow: hidden;
+  background-color:rgba(lightblue,0.8);
+}
+
+#logo{
+  height: 90px;
+  width: auto;
+  float: left;
+  padding: 0px 10px 0px 20px;
+}
+
+#searchbox{
+  padding: 28px 0px 0px 0px;
+  margin:  0 auto;
+}
+
+.ui-multiselect-menu.ui-widget.ui-widget-content.ui-corner-all {
+  display: none;
+}
+
+.ui-multiselect-header.ui-widget-header.ui-corner-all.ui-helper-clearfix {
+  display: none;
+}
+
+.ui-helper-reset {
+  text-align:left;
+}
+
+#search_ms{
+  font-size: 20px;
+  border-radius: 5px;
+  text-align:left;
+}
+
+#category{
+  font-size: 20px;
+  height: 35px;
+}
+
+#submit_btn{
+  font-size: 30px;
+}
+
