@@ -1,54 +1,57 @@
-<div id='detail'>
-  <div id='detail_content_images', class='detail_content'>
-    <!-- 大画像 -->
-    <%= image_tag "#{@map.store_name}/main.jpg", id: 'image_function', :size => "10000x400" %>
+<div class='body_background'>
+  <div class='br br_box'></div>
+  <div id='detail'>
+    <div id='detail_content_images', class='detail_content'>
+      <!-- 大画像 -->
+      <%= image_tag "#{@map.store_name}/main.jpg", id: 'image_function', :size => "10000x400" %>
 
-    <!-- 複数の小画像 -->
-    <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.store_name}") %>
-      <div id='image_div'>
-        <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.store_name}/*.png").count.times do |i| %>
-          <div class='image'><%= image_tag "#{@map.store_name}/#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "120x90" %></div>
-        <% end %>
+      <!-- 複数の小画像 -->
+      <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.store_name}") %>
+        <div id='image_div'>
+          <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.store_name}/*.png").count.times do |i| %>
+            <div class='image'><%= image_tag "#{@map.store_name}/#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "90x68" %></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div id='detail_content_table', class='detail_content'>
+      <div id='detail_content_storename', class='detail_content_item'>
+        <%= @map.store_name %>
+        <hr>
       </div>
-    <% end %>
-  </div>
 
-  <div id='detail_content_table', class='detail_content'>
-    <div id='detail_content_storename', class='detail_content_item'>
-      <%= @map.store_name %>
-      <hr>
+      <div id='text'>
+        <p class='text'>ここにテキスト
+        </p>
+      </div>
+
+      <dl class='detail_content_item'>
+        <dt class='item_dt'>住所:</dt>
+        <dd class='item_dd'><%= @map.address %></dd>
+        <div id='map_show'></div>
+      </dl>
+
+      <dl class='detail_content_item'>
+        <dt class='item_dt'>カテゴリ:</dt>
+        <dd class='item_dd'><%= @map.large_category %></dd>
+      </dl>
+
+      <dl class='detail_content_item'>
+        <dt class='item_dt'>営業時間:</dt>
+        <dd class='item_dd'><%= @map.business_hours %></dd>
+      </dl>
+
+      <dl class='detail_content_item'>
+        <dt class='item_dt'>HP:</dt>
+        <dd class='item_dd'><%= @map.business_hours %></dd>
+      </dl>
+
+      <dl class='detail_content_item'>
+        <dt class='item_dt'>電話番号:</dt>
+        <dd class='item_dd'><%= @map.business_hours %></dd>
+      </dl>
     </div>
-
-    <div id='text'>
-      <p class='text'>ここにテキスト
-      </p>
-    </div>
-
-    <dl class='detail_content_item'>
-      <dt class='item_dt'>住所:</dt>
-      <dd class='item_dd'><%= @map.address %></dd>
-      <div id='map_show'></div>
-    </dl>
-
-    <dl class='detail_content_item'>
-      <dt class='item_dt'>カテゴリ:</dt>
-      <dd class='item_dd'><%= @map.large_category %></dd>
-    </dl>
-
-    <dl class='detail_content_item'>
-      <dt class='item_dt'>営業時間:</dt>
-      <dd class='item_dd'><%= @map.business_hours %></dd>
-    </dl>
-
-    <dl class='detail_content_item'>
-      <dt class='item_dt'>HP:</dt>
-      <dd class='item_dd'><%= @map.business_hours %></dd>
-    </dl>
-
-    <dl class='detail_content_item'>
-      <dt class='item_dt'>電話番号:</dt>
-      <dd class='item_dd'><%= @map.business_hours %></dd>
-    </dl>
   </div>
 </div>
 
@@ -97,5 +100,5 @@
   }
 </script>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
 </script>

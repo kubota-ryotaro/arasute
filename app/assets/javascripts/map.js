@@ -8,3 +8,13 @@ jQuery(function($) {
     multiple:true
   });
 });
+
+jQuery(function($) {
+  jQuery("#category").multiselect({
+    header: true,
+    noneSelectedText: "ジャンル選択",
+    selectedList: 4,
+    autoopen:true,
+    multiple:true
+  });
+});

@@ -1,33 +1,36 @@
 <!-- コンテンツ作成 -->
-<div id='content'>
-  <!-- 入力した駅の数だけdivを作る。 -->
-  <% @maps_station_num.each do |station, num| %>
-    <ul class="contents">
-      <!-- 駅名とカテゴリと検索結果数を表示 -->
-      <div id=search_result><%= station %>駅<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
-      <% @maps.each do |map| %>
-        <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
-          <li class='content'>
-            <!-- 画像と店名の挿入 -->
-            <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
-              <div class="image_div">
+<div class='body_background'>
+  <div class='br br_box'></div>
+  <div id='content'>
+    <!-- 入力した駅の数だけdivを作る。 -->
+    <% @maps_station_num.each do |station, num| %>
+      <ul class="contents">
+        <!-- 駅名とカテゴリと検索結果数を表示 -->
+        <div id=search_result><%= station %>駅<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
+        <% @maps.each do |map| %>
+          <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
+            <li class='content'>
+              <!-- 画像と店名の挿入 -->
+              <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
+                <div class="image_div">
+                  <%= link_to map, :target=>["_blank"] do %>
+                    <p><%= image_tag map.store_name, :size => "170x120" %></P>
+                  <% end %>
+                </div>
+              <% end %>
+              <div class='store_info_hot'>
                 <%= link_to map, :target=>["_blank"] do %>
-                  <p><%= image_tag map.store_name, :size => "170x120" %></P>
+                  <p><%= map.store_name %></p>
+                  <p><%= map.small_category %></p>
+                  <p><%= map.address %></p>
                 <% end %>
               </div>
-            <% end %>
-            <div class='store_info_hot'>
-              <%= link_to map, :target=>["_blank"] do %>
-                <p><%= map.store_name %></p>
-                <p><%= map.small_category %></p>
-                <p><%= map.address %></p>
-              <% end %>
-            </div>
-          </li>
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-  <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
 
 <!-- 地図を表示 -->

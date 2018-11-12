@@ -18,6 +18,7 @@
     <!-- ナビバーを表示 -->
     <div id='navbar'>
       <%= image_tag "logo.png", id: 'logo' %>                   <!-- ロゴ画像を挿入 -->
+      <hr>
       <%= form_tag maps_path, :method => 'get' do %>            <!-- 駅名とカテゴリで絞り込む -->
         <div id='searchbox'>
           <%= select_tag :search, options_for_select([

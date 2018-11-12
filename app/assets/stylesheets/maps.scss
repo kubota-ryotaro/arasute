@@ -1,18 +1,23 @@
+body{
+  text-align: center;
+  margin-right: auto;
+  margin-left : auto;
+  background: white;
+
+}
+
 #navbar{
   overflow: hidden;
-  background-color:rgba(lightblue,0.8);
 }
 
 #logo{
-  height: 90px;
+  height: 50px;
   width: auto;
-  float: left;
-  padding: 0px 10px 0px 20px;
 }
 
 #searchbox{
-  padding: 28px 0px 0px 0px;
-  margin:  0 auto;
+  padding-bottom: 4px;
+  margin-left: 380px;
 }
 
 .ui-multiselect-menu.ui-widget.ui-widget-content.ui-corner-all {
@@ -28,17 +33,30 @@
 }
 
 #search_ms{
-  font-size: 20px;
-  border-radius: 5px;
+  font-size: 18px;
   text-align:left;
 }
 
-#category{
-  font-size: 20px;
-  height: 35px;
+#category_ms{
+  text-align:left;
+  font-size: 17px;
+  height: 32px;
+  padding-bottom: 1px;
 }
 
 #submit_btn{
-  font-size: 30px;
+  font-size: 14px;
+  background: white;
+  padding-top: 3px;
 }
+
+.br_box{
+  background: green;
+  height: 0px;
+}
+
+.body_background{
+  background: #f4f3f1;
+}
+
 
