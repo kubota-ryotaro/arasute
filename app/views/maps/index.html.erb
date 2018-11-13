@@ -11,17 +11,17 @@
           <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
             <li class='content'>
               <!-- 画像と店名の挿入 -->
-              <% if File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.store_name}.png") %>
+              <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
                 <div class="image_div">
                   <%= link_to map, :target=>["_blank"] do %>
-                    <p><%= image_tag map.store_name, :size => "170x120" %></P>
+                    <p><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" %></P>
                   <% end %>
                 </div>
               <% end %>
               <div class='store_info_hot'>
                 <%= link_to map, :target=>["_blank"] do %>
                   <p><%= map.store_name %></p>
-                  <p><%= map.small_category %></p>
+                  <p><%= map.phone_number %></p>
                   <p><%= map.address %></p>
                 <% end %>
               </div>

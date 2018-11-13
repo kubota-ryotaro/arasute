@@ -3,13 +3,12 @@
   <div id='detail'>
     <div id='detail_content_images', class='detail_content'>
       <!-- 大画像 -->
-      <%= image_tag "#{@map.store_name}/main.jpg", id: 'image_function', :size => "10000x400" %>
-
+      <%= image_tag "#{@map.station_name}/#{@map.store_name}/main", id: 'image_function', :size => "10000x400" %>
       <!-- 複数の小画像 -->
-      <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.store_name}") %>
+      <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub_1.jpg") %>
         <div id='image_div'>
-          <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.store_name}/*.png").count.times do |i| %>
-            <div class='image'><%= image_tag "#{@map.store_name}/#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "90x68" %></div>
+          <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub*").count.times do |i| %>
+            <div class='image'><%= image_tag "#{@map.station_name}/#{@map.store_name}/sub_#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "90x68" %></div>
           <% end %>
         </div>
       <% end %>
@@ -22,8 +21,7 @@
       </div>
 
       <div id='text'>
-        <p class='text'>ここにテキスト
-        </p>
+        <p class='text'>ここにテキスト</p>
       </div>
 
       <dl class='detail_content_item'>
@@ -34,7 +32,7 @@
 
       <dl class='detail_content_item'>
         <dt class='item_dt'>カテゴリ:</dt>
-        <dd class='item_dd'><%= @map.large_category %></dd>
+        <dd class='item_dd'><%= @map.category %></dd>
       </dl>
 
       <dl class='detail_content_item'>

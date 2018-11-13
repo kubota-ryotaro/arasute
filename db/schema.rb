@@ -35,14 +35,14 @@ ActiveRecord::Schema.define(version: 2018_11_09_073954) do
 
   create_table "maps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "station_name"
-    t.string "large_category"
-    t.string "small_category"
+    t.string "category"
+    t.string "phone_number"
     t.string "store_name"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.string "business_hours"
-    t.string "regular_holiday"
+    t.string "HP"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
