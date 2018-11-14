@@ -20,8 +20,8 @@
         <hr>
       </div>
 
-      <div id='text'>
-        <p class='text'>ここにテキスト</p>
+      <div id='detail_text_block'>
+        <%= simple_format(@map.text, :id => 'detail_text') %>
       </div>
 
       <dl class='detail_content_item'>

@@ -26,7 +26,7 @@
           <% @maps.each do |map| %>
             <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
               <li class='content'>
-                <!-- 画像と店名の挿入 -->
+                <!-- 画像の挿入 -->
                 <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
                   <div class="image_div">
                     <%= link_to map, :target=>["_blank"] do %>
@@ -41,8 +41,7 @@
                 <div class='store_info'>
                   <%= link_to map, :target=>["_blank"], :class => 'store_info_link' do %>
                     <div class='store_info_msg'><%= map.store_name %></div>
-                    <div class='store_info_msg'><%= map.phone_number %></div>
-                    <div class='store_info_msg'><%= map.address %></div>
+                    <%= simple_format(map.text, {}, wrapper_tag: 'div', :calss => 'store_info_msg') %>
                   <% end %>
                 </div>
               </li>
