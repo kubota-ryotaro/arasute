@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multiselect-widget/3.0.0/jquery.multiselect.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <%= javascript_include_tag "map.js" %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
@@ -19,24 +20,7 @@
     <div id='navbar'>
       <%= image_tag "logo.png", id: 'logo' %>                   <!-- ロゴ画像を挿入 -->
       <hr>
-      <%= form_tag maps_path, :method => 'get' do %>            <!-- 駅名とカテゴリで絞り込む -->
-        <div id='searchbox'>
-          <%= select_tag :search, options_for_select([
-            ["吉祥寺"],
-            ["下北沢"],
-            ["渋谷"],
-          ]), :multiple =>true, class: 'search' %>
-        <%= select_tag :category, options_for_select([
-          ["飲食"],
-          ["ショッピングモール"],
-          ["CD/DVD レンタルショップ"],
-          ["家電量販店"]
-        ]), :prompt => params[:category], class: 'search' %>
-      <%= submit_tag "検索", id: 'submit_btn', :name => nil %>
-        </div>
-      <% end %>
     </div>
-
     <%= yield %>
   </body>
 </html>
