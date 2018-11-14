@@ -12,5 +12,6 @@ csv.each do |maps|
     s.longitude = maps[7]
     s.business_hours = maps[8]
     s.HP = maps[9]
+    s.text = maps[10]
   end
 end

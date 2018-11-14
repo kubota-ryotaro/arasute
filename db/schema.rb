@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_073954) do
     t.float "longitude"
     t.string "business_hours"
     t.string "HP"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
