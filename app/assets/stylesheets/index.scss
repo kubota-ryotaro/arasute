@@ -3,13 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #content{
-  width: 80%;
+  width: 65%;
   margin: auto;
 }
 
 // サーチボックス
 #search_box{
-  width: 22%;
+  width: 17%;
   background: #f0dacd;
   float: left;
 }
@@ -55,7 +55,7 @@
 
 /* サーチコンテンツ */
 #search_content{
-  width: 77%;
+  width: 82%;
   text-align: center;
   margin: auto;
   background: white;
@@ -109,6 +109,16 @@
   color: navy;
   text-decoration: underline;
 }
+
+.store_info_name{
+  font-weight: bold;
+}
+
+.store_info_link div:nth-of-type(3){
+  color: gray;
+}
+
+
 
 // 地図
 #map_idx{
