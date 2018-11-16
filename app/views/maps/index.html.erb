@@ -3,21 +3,7 @@
   <div class='br br_box'>
   </div>
   <div id='content'>
-    <div id='search_box'>
-      <h3 class='search_box_title'>地域</h3>
-      <ul class='search_tree'>
-        <li class='link'><%= link_to '吉祥寺', {controller: "maps", action: "index", search: "吉祥寺"}, {:class => 'link_search'}  %></li>
-        <li class='link'><%= link_to '下北沢', {controller: "maps", action: "index", search: "下北沢"}, {:class => 'link_search'}  %></li>
-        <li class='link'><%= link_to '渋谷', {controller: "maps", action: "index", search: "渋谷"}, {:class => 'link_search'}  %></li>
-      </ul>
-      <h4 class='search_box_title'>カテゴリ</h4>
-      <ul class='search_tree'>
-        <li class='link'><%= link_to 'スニーカー', {controller: "maps", action: "index", category: "スニーカー"}, {:class => 'link_search'}  %></li>
-        <li class='link'><%= link_to 'レディス', {controller: "maps", action: "index", category: "レディス"}, {:class => 'link_search'}  %></li>
-        <li class='link'><%= link_to 'メンズ', {controller: "maps", action: "index", category: "メンズ"}, {:class => 'link_search'}  %></li>
-      </ul>
-    </div>
-
+    <%= render 'shared/search_list' %>
     <div id='search_content'>
       <!-- パンくずリスト -->
       <% if params[:search].present? or params[:category].present? %>
