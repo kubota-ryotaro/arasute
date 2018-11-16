@@ -19,10 +19,28 @@
     </div>
 
     <div id='search_content'>
+      <!-- パンくずリスト -->
+      <% if params[:search].present? or params[:category].present? %>
+        <div id='search_nav'>
+          <nav id='pankuzu_nav'>
+            <ol id='pankuzu_ol'>
+              <li class='pankuzu_li'><a href="/">TOP</a></li>
+              <% if params[:search].present? %>
+                <li class='pankuzu_li'><%= params[:search] %></li>
+              <% else %>
+                <li class='pankuzu_li'><%= params[:category] %></li>
+              <% end %>
+            </ol>
+          </nav>
+          <div id='search_result'>
+            <span>全<%= @maps_station_num.values.inject(:+) %>件</span>
+          </div>
+        </div>
+      <% end %>
       <% @maps_station_num.each do |station, num| %><!-- 入力した駅の数だけdivを作る。 -->
         <ul class="contents">
           <!-- 駅名とカテゴリと検索結果数を表示 -->
-          <div id='search_result'><%= station %>駅周辺<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
+          <div class='search_result_station'><%= station %>駅周辺<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
           <div class='search_store'>
             <% @maps.each do |map| %>
               <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->

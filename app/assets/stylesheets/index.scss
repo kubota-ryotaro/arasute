@@ -68,16 +68,44 @@
 
 /* サーチコンテンツ */
 #search_content{
-  width: 80%;
+  width: 79%;
   text-align: center;
   margin: auto;
   background: white;
   float: right;
 }
 
+#search_nav{
+  text-align: left;
+}
+
+#pankuzu_nav{
+  display: inline-block;
+}
+
+#pankuzu_ol{
+  display: flex;
+}
+
+.pankuzu_li{
+  display: flex;
+}
+
+.pankuzu_li:not(:last-child)::after {
+  content: ">";
+  display: block;
+  margin-left: 6px;
+  margin-right: 6px
+}
+
 #search_result{
-  font-size: 20px;
-  padding: 10px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.search_result_station{
+  font-size: 19px;
+  padding: 13px 0 10px 5px;
   text-align: left;
 }
 
@@ -90,11 +118,18 @@
   content: "  ";
 }
 
+.contents{
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 13px;
+  background: #eeeeee;
+}
+
 .content{
   display: inline-block;
   vertical-align: top;
   margin-right: 14px;
-  margin-top: 20px;
+  margin-top: 13px;
   width: 170px;
 }
 
