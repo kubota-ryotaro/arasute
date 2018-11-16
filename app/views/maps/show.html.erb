@@ -30,7 +30,11 @@
           </tr>
           <tr>
             <th class='item_head'>カテゴリ</th>
-            <td class='item_data'><%= simple_format(@map.category) %></td>
+            <td class='item_data'>
+              <% @map.category[1, @map.category.length].split("#").each do |category| %>
+                <div class="square_category"><%= category %></div>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th class='item_head'>営業時間</th>

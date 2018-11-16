@@ -40,15 +40,21 @@
                     </div>
                   <% end %>
                   <!-- 詳細ボタン -->
-                  <%= link_to map, :class => 'detail_btn', :target => ["_blank"] do %>
+                  <%= link_to map, :class => 'detail_btn' do %>
                     <div class='detail_btn_text'>詳細を見る</div>
                   <% end %>
                   <div class='store_info'>
-                    <%= link_to map, :target=>["_blank"], :class => 'store_info_link' do %>
+                    <%= link_to map, :class => 'store_info_link' do %>
                       <div class='store_info_msg store_info_name'><%= map.store_name %></div>
-                      <%= simple_format(map.text[0, 70] + '...', {}, wrapper_tag: 'div', :class => 'store_info_msg') %>
-                      <div class='store_info_msg'><%= map.category %></div>
+                      <%= simple_format(map.text[0, 70] + '...', {class: 'store_info_text'}, wrapper_tag: 'div') %>
                     <% end %>
+                    <div class='store_info_btn'><!-- categoryをボタンで表示する。 -->
+                      <% map.category[1, map.category.length].split("#").each do |category| %>
+                        <div class="store_info_category">
+                        <%= link_to category, {controller: "maps", action: "index", category: category}, {:class => 'link_category'} %>
+                        </div>
+                      <% end %>
+                    </div>
                   </div>
                 </li>
               <% end %>

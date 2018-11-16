@@ -111,6 +111,7 @@
 
 .search_store{
   border-top: dotted 1px black;
+  text-align: left;
 }
 
 .space:before{
@@ -131,22 +132,23 @@
   margin-right: 14px;
   margin-top: 13px;
   width: 170px;
+  text-align: center;
 }
 
 .detail_btn_text{
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    color: black;
-    background: white;
-    border-radius: 4px;
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-    font-weight: 500;
-    border: solid 2px #AAAAAA;
-    width: 153px;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  color: black;
+  background: white;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  border: solid 2px #AAAAAA;
+  width: 153px;
 }
 
 .detail_btn_text:active { //押したとき
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
 
 .store_info_msg{
@@ -166,13 +168,21 @@
   font-weight: bold;
 }
 
-.store_info_link div:nth-of-type(3){
+.store_info_text{
   color: #999999;
   text-align: left;
 }
 
-.store_info_link div:nth-of-type(2){
-  color: #999999;
-  text-align: left;
+//カテゴリをボタン風に表示する。
+.store_info_btn{ text-align: left; }
+.store_info_category{
+  display: inline-block;
+  padding: 0 0.3em 0.1em 0.2em;
+  text-decoration: none;
+  background: #AAAAAA;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 10px;
 }
+.link_category{ color: white; }
 

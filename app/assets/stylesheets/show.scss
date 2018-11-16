@@ -15,8 +15,12 @@
 
 #detail_content_storename{
   font-size: 30px;
-  margin: 25px 0 0 5px;
+  margin: 10px 0 0 5px;
   text-align: left;
+}
+
+#detail_content_storename hr{
+  margin: 10px 0px 8px 0px;
 }
 
 #detail_image_content{
@@ -54,7 +58,7 @@
 
 .item_head{
   border: solid 1px #eeeeee;
-  width: 80px;
+  width: 70px;
   font-weight: 500;
 }
 
@@ -62,4 +66,16 @@
   border: solid 1px #eeeeee;
   text-align: left;
 }
+
+//カテゴリをボタン風に表示する。
+.square_category{
+    display: inline-block;
+    padding: 0 0.5em 0.1em 0.5em;
+    text-decoration: none;
+    background: #AAAAAA;
+    color: #FFF;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
 
