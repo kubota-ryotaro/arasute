@@ -1,60 +1,74 @@
-<div class='body_background'>
+<div id='body_background' class='show_back'>
   <div class='br br_box'></div>
+  <div id='search_box'>
+    <h3 class='search_box_title'>地域</h3>
+    <ul class='search_tree'>
+      <li class='link'><%= link_to '吉祥寺', {controller: "maps", action: "index", search: "吉祥寺"}, {:class => 'link_search'}  %></li>
+      <li class='link'><%= link_to '下北沢', {controller: "maps", action: "index", search: "下北沢"}, {:class => 'link_search'}  %></li>
+      <li class='link'><%= link_to '渋谷', {controller: "maps", action: "index", search: "渋谷"}, {:class => 'link_search'}  %></li>
+    </ul>
+    <h4 class='search_box_title'>カテゴリ</h4>
+    <ul class='search_tree'>
+      <li class='link'><%= link_to 'スニーカー', {controller: "maps", action: "index", category: "スニーカー"}, {:class => 'link_search'}  %></li>
+      <li class='link'><%= link_to 'レディス', {controller: "maps", action: "index", category: "レディス"}, {:class => 'link_search'}  %></li>
+      <li class='link'><%= link_to 'メンズ', {controller: "maps", action: "index", category: "メンズ"}, {:class => 'link_search'}  %></li>
+    </ul>
+  </div>
+
+
+
   <div id='detail'>
-    <div id='detail_content_images', class='detail_content'>
-      <!-- 大画像 -->
-      <%= image_tag "#{@map.station_name}/#{@map.store_name}/main", id: 'image_function', :size => "10000x400" %>
-      <!-- 複数の小画像 -->
-      <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub_1.jpg") %>
-        <div id='image_div'>
-          <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub*").count.times do |i| %>
-            <div class='image'><%= image_tag "#{@map.station_name}/#{@map.store_name}/sub_#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "90x68" %></div>
-          <% end %>
-        </div>
-      <% end %>
+    <div id='detail_content_storename', class='detail_content_item'>
+      <%= @map.store_name %>
+      <hr>
     </div>
-
-    <div id='detail_content_table', class='detail_content'>
-      <div id='detail_content_storename', class='detail_content_item'>
-        <%= @map.store_name %>
-        <hr>
+    <div id='detail_image_content'>
+      <!-- 画像 -->
+      <div id='detail_content_images', class='detail_content'>
+        <%= image_tag "#{@map.station_name}/#{@map.store_name}/main", id: 'image_function', :size => "800x300" %>
+        <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub_1.jpg") %>
+          <div id='image_div'>
+            <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub*").count.times do |i| %>
+              <div class='image'><%= image_tag "#{@map.station_name}/#{@map.store_name}/sub_#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "80x60" %></div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-
-      <div id='detail_text_block'>
-        <%= simple_format(@map.text, :id => 'detail_text') %>
-      </div>
-
-      <dl class='detail_content_item'>
-        <dt class='item_dt'>住所:</dt>
-        <dd class='item_dd'><%= @map.address %></dd>
-        <div id='map_show'></div>
-      </dl>
-
-      <dl class='detail_content_item'>
-        <dt class='item_dt'>カテゴリ:</dt>
-        <dd class='item_dd'><%= @map.category %></dd>
-      </dl>
-
-      <dl class='detail_content_item'>
-        <dt class='item_dt'>営業時間:</dt>
-        <dd class='item_dd'><%= @map.business_hours %></dd>
-      </dl>
-
-      <dl class='detail_content_item'>
-        <dt class='item_dt'>HP:</dt>
-        <dd class='item_dd'><%= @map.HP %></dd>
-      </dl>
-
-      <dl class='detail_content_item'>
-        <dt class='item_dt'>電話番号:</dt>
-        <dd class='item_dd'><%= @map.phone_number %></dd>
-      </dl>
+      <table id='detail_content_table'>
+        <tbody>
+          <tr>
+            <th class='item_head'>テキスト</th>
+            <td class='item_data'><%= simple_format(@map.text, :id => 'detail_text') %></td>
+          </tr>
+          <tr>
+            <th class='item_head'>住所</th>
+            <td class='item_data'><%= simple_format(@map.address) %></td>
+          </tr>
+          <tr>
+            <th class='item_head'>カテゴリ</th>
+            <td class='item_data'><%= simple_format(@map.category) %></td>
+          </tr>
+          <tr>
+            <th class='item_head'>営業時間</th>
+            <td class='item_data'><%= simple_format(@map.business_hours) %></td>
+          </tr>
+          <tr>
+            <th class='item_head'>HP</th>
+            <td class='item_data'><%= simple_format(@map.HP) %></td>
+          </tr>
+          <tr>
+            <th class='item_head'>電話番号</th>
+            <td class='item_data'><%= simple_format(@map.phone_number) %></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <div id='map_idx'></div>
   </div>
 </div>
 
 <%= link_to 'Edit', edit_map_path(@map) %> |
-<%= link_to 'Back', maps_path %>
+<%= link_to 'HOME', maps_path %>
 <!-- 小画像をクリックする度に大画像に反映させる。  -->
 <script>
   function slideshow(param){
@@ -70,7 +84,7 @@
   function initMap() {
 
     var test = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map_show'), {
+    var map = new google.maps.Map(document.getElementById('map_idx'), {
       zoom: 15,
       center: test
     });

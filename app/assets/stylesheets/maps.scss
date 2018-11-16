@@ -18,8 +18,14 @@ body{
   height: 10px;
 }
 
-.body_background{
+#body_background{
   background: white;
   overflow: hidden;
+}
+
+#map_idx{
+  width: 100%;
+  margin: auto;
+  height: 600px;
 }
 

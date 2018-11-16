@@ -1,5 +1,5 @@
 <!-- コンテンツ作成 -->
-<div class='body_background'>
+<div id='body_background'>
   <div class='br br_box'>
   </div>
   <div id='content'>
@@ -24,7 +24,7 @@
         <div id='search_nav'>
           <nav id='pankuzu_nav'>
             <ol id='pankuzu_ol'>
-              <li class='pankuzu_li'><a href="/">TOP</a></li>
+              <li class='pankuzu_li'><%= link_to 'HOME', maps_path %></li>
               <% if params[:search].present? %>
                 <li class='pankuzu_li'><%= params[:search] %></li>
               <% else %>
@@ -48,7 +48,7 @@
                   <!-- 画像の挿入 -->
                   <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
                     <div class="image_div">
-                      <%= link_to map, :target=>["_blank"] do %>
+                      <%= link_to map do %>
                         <span><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" %></span>
                       <% end %>
                     </div>
@@ -70,16 +70,16 @@
           </div>
         </ul>
       <% end %>
+      <!-- 地図を表示 -->
+      <% if params[:search].present? %>
+        <div id='map_idx'></div>
+      <% else %>
+        <div id='map_idx' hidden></div>
+      <% end %>
     </div>
   </div>
 </div>
 
-<!-- 地図を表示 -->
-<% if params[:search].present? %>
-  <div id='map_idx'></div>
-<% else %>
-  <div id='map_idx' hidden></div>
-<% end %>
 
 
 <!-- GoogleMapsAPIのセッティング -->
