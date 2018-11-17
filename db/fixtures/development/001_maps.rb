@@ -13,5 +13,6 @@ csv.each do |maps|
     s.business_hours = maps[8]
     s.HP = maps[9]
     s.text = maps[10]
+    s.favorite_flag = maps[11]
   end
 end

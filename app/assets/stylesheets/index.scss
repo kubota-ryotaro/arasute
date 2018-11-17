@@ -135,6 +135,11 @@
   text-align: center;
 }
 
+.image_div:hover{
+  opacity: 0.7;
+  text-decoration: none;
+}
+
 .detail_btn_text{
   display: inline-block;
   padding: 0.25em 0.5em;
@@ -160,8 +165,7 @@
 }
 
 .store_info_link:hover{ //マウスオーバー時にアクションを加える。
-  color: navy;
-  text-decoration: underline;
+  text-decoration: underline gray;
 }
 
 .store_info_name{
@@ -183,6 +187,6 @@
   border-radius: 4px;
   margin-top: 5px;
   font-size: 10px;
+  color: white;
 }
-.link_category{ color: white; }
 

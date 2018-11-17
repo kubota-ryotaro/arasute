@@ -13,6 +13,11 @@ class Map < ApplicationRecord
     self.longitude = response["results"][0]["geometry"]["location"]["lng"]
   end
 
+  # defaltで表示させる内容。
+  def self.favorite
+    Map.where.not(favorite_flag: nil).order(:favorite_flag)
+  end
+
   # 検索フォームにより絞り込まれた店のデータを出力する。
   def self.search(search, category) # Controllerから渡されたパラメータによって、station_nameとcategoryカラムを部分一致で絞り込む
     if search

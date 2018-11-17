@@ -18,8 +18,12 @@
           </div>
         <% end %>
       </div>
-      <table id='detail_content_table'>
+      <table class='detail_content_table'>
         <tbody>
+          <tr>
+            <th class='fav_item_head'>エリア</th>
+            <td class='item_data'><div class='square_area'><%= @map.station_name %></td>
+          </tr>
           <tr>
             <th class='item_head'>テキスト</th>
             <td class='item_data'><%= simple_format(@map.text, :id => 'detail_text') %></td>

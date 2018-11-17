@@ -6,6 +6,7 @@ class MapsController < ApplicationController
   def index
     @maps = Map.search(params[:search],params[:category])
     @maps_station_num = Map.station_num(params[:search],params[:category])
+    @maps_favorite = Map.favorite
   end
 
   # GET /maps/1

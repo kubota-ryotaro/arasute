@@ -1,76 +1,117 @@
 <!-- コンテンツ作成 -->
 <div id='body_background'>
-  <div class='br br_box'>
-  </div>
-  <div id='content'>
-    <%= render 'shared/search_list' %>
-    <div id='search_content'>
-      <!-- パンくずリスト -->
-      <% if params[:search].present? or params[:category].present? %>
-        <div id='search_nav'>
-          <nav id='pankuzu_nav'>
-            <ol id='pankuzu_ol'>
-              <li class='pankuzu_li'><%= link_to 'HOME', maps_path %></li>
-              <% if params[:search].present? %>
-                <li class='pankuzu_li'><%= params[:search] %></li>
-              <% else %>
-                <li class='pankuzu_li'><%= params[:category] %></li>
-              <% end %>
-            </ol>
-          </nav>
-          <div id='search_result'>
-            <span>全<%= @maps_station_num.values.inject(:+) %>件</span>
-          </div>
-        </div>
-      <% end %>
-      <% @maps_station_num.each do |station, num| %><!-- 入力した駅の数だけdivを作る。 -->
-        <ul class="contents">
-          <!-- 駅名とカテゴリと検索結果数を表示 -->
-          <div class='search_result_station'><%= station %>駅周辺<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
-          <div class='search_store'>
-            <% @maps.each do |map| %>
-              <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
-                <li class='content'>
-                  <!-- 画像の挿入 -->
-                  <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
-                    <div class="image_div">
-                      <%= link_to map do %>
-                        <span><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" %></span>
-                      <% end %>
-                    </div>
-                  <% end %>
-                  <!-- 詳細ボタン -->
-                  <%= link_to map, :class => 'detail_btn' do %>
-                    <div class='detail_btn_text'>詳細を見る</div>
-                  <% end %>
-                  <div class='store_info'>
-                    <%= link_to map, :class => 'store_info_link' do %>
-                      <div class='store_info_msg store_info_name'><%= map.store_name %></div>
-                      <%= simple_format(map.text[0, 70] + '...', {class: 'store_info_text'}, wrapper_tag: 'div') %>
-                    <% end %>
-                    <div class='store_info_btn'><!-- categoryをボタンで表示する。 -->
+  <div class='br br_box'></div>
+  <!-- TOPページを表示 -->
+  <% unless params[:search].present? or params[:category].present? %>
+    <div id='content'>
+      <%= render 'shared/search_list' %>
+      <div id='fav_search_content'>
+        <div class='search_result_station'>おすすめトップ１０</div>
+        <% @maps_favorite.each do |map| %>
+          <div class='fav_content'>
+            <%= link_to map, class: 'fav_store_detail' do %>
+            <div class='fav_tatile_name'>
+              <%= map.favorite_flag %>. <%= map.store_name %>
+            </div>
+            <div class='fav_store_image'><!-- 画像の挿入 -->
+              <%= image_tag("#{map.station_name}/#{map.store_name}/main", :class => 'fav_image', :size => "270x180") %>
+            </div>
+              <table class='detail_content_table'>
+                <tbody>
+                  <tr>
+                    <th class='fav_item_head'>エリア</th>
+                    <td class='item_data'><div class='square_area'><%= map.station_name %></td>
+                  </tr>
+                  <tr>
+                    <th class='fav_item_head'>テキスト</th>
+                    <td class='item_data'><%= simple_format(map.text, :id => 'detail_text') %></td>
+                  </tr>
+                  <tr>
+                    <th class='fav_item_head'>カテゴリ</th>
+                    <td class='item_data'>
                       <% map.category[1, map.category.length].split("#").each do |category| %>
-                        <div class="store_info_category">
-                        <%= link_to category, {controller: "maps", action: "index", category: category}, {:class => 'link_category'} %>
-                        </div>
+                        <div class="square_category"><%= category %></div>
                       <% end %>
-                    </div>
-                  </div>
-                </li>
-              <% end %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             <% end %>
           </div>
-        </ul>
-      <% end %>
-      <!-- 地図を表示 -->
-      <% if params[:search].present? %>
-        <div id='map_idx'></div>
-      <% else %>
-        <div id='map_idx' hidden></div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</div>
+  <% else %>
+
+    <!-- 絞り込み後 -->
+    <div id='content'>
+      <%= render 'shared/search_list' %>
+      <div id='search_content'>
+        <!-- パンくずリスト -->
+        <% if params[:search].present? or params[:category].present? %>
+          <div id='search_nav'>
+            <nav id='pankuzu_nav'>
+              <ol id='pankuzu_ol'>
+                <li class='pankuzu_li'><%= link_to 'HOME', maps_path %></li>
+                <% if params[:search].present? %>
+                  <li class='pankuzu_li'><%= params[:search] %></li>
+                <% else %>
+                  <li class='pankuzu_li'><%= params[:category] %></li>
+                <% end %>
+              </ol>
+            </nav>
+            <div id='search_result'>
+              <span>全<%= @maps_station_num.values.inject(:+) %>件</span>
+            </div>
+          </div>
+        <% end %>
+        <% @maps_station_num.each do |station, num| %><!-- 駅の数だけdivを作る。 -->
+          <ul class="contents">
+            <!-- 駅名とカテゴリと検索結果数を表示 -->
+            <div class='search_result_station'><%= station %>駅周辺<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
+            <div class='search_store'>
+              <% @maps.each do |map| %>
+                <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
+                  <li class='content'>
+                    <!-- 画像の挿入 -->
+                    <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
+                      <div class="image_div">
+                        <%= link_to map do %>
+                          <span><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" %></span>
+                        <% end %>
+                      </div>
+                    <% end %>
+                    <!-- 詳細ボタン -->
+                    <%= link_to map, :class => 'detail_btn' do %>
+                      <div class='detail_btn_text'>詳細を見る</div>
+                    <% end %>
+                    <div class='store_info'>
+                      <%= link_to map, :class => 'store_info_link' do %>
+                        <div class='store_info_msg store_info_name'><%= map.store_name %></div>
+                        <%= simple_format(map.text[0, 70] + '...', {class: 'store_info_text'}, wrapper_tag: 'div') %>
+                      <% end %>
+                      <div class='store_info_btn'><!-- categoryをボタンで表示する。 -->
+                        <% map.category[1, map.category.length].split("#").each do |category| %>
+                          <div class="store_info_category"><%= category %></div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+              <% end %>
+            </div>
+          </ul>
+        <% end %>
+        <!-- 地図を表示 -->
+        <% if params[:search].present? %>
+          <div id='map_idx'></div>
+        <% else %>
+          <div id='map_idx' hidden></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+    </div>
 
 
 

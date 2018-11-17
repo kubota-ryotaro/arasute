@@ -11,6 +11,7 @@ class CreateMaps < ActiveRecord::Migration[5.2]
       t.string :business_hours
       t.string :HP
       t.text :text
+      t.integer :favorite_flag
 
       t.timestamps
     end

@@ -40,12 +40,16 @@
   padding: 3px;
 }
 
+#image_div{
+  text-align: left;
+}
+
 #detail_content_images{
   width: 40%;
   float: left;
 }
 
-#detail_content_table{
+.detail_content_table{
   width: 58%;
   float: right;
   margin-bottom: 10px;
