@@ -18,3 +18,18 @@ jQuery(function($) {
     multiple:true
   });
 });
+
+$(function () {
+  var $body = $('body');
+  $('#js__sideMenuBtn').on('click', function () {
+    $body.toggleClass('side-open');
+    $('#js__overlay').on('click', function () {
+      $body.removeClass('side-open');
+    });
+  });
+});
+
+$('#js__sideMenuBtn').click(function() {
+  //$('#hamburger-bar').fadeOut(2000);
+  element.parentNode.removeChild(element);
+ });

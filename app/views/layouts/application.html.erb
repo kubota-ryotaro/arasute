@@ -23,15 +23,44 @@
   </head>
 
   <body>
+    <!-- サイドオープン時メインコンテンツを覆う--> 
+    <div class="overlay" id="js__overlay"></div>
+
+
+    <nav class="side-menu">
+      <ul>
+        <li><a href="#">メニュータイトル</a></li>
+        <li><a href="#">メニュータイトル</a></li>
+        <li><a href="#">メニュータイトル</a></li>
+      </ul>
+    </nav>
+
+
+    <input type="checkbox" class="check" id="checked">
+    <label class="menu-btn" for="checked">
+      <span class="bar top"></span>
+      <span class="bar middle"></span>
+      <span class="bar bottom"></span>
+    </label>
+    <label class="close-menu" for="checked"></label>
+
+
+
+
+    <!-- メインコンテンツ -->
+    <div class="wrapper">
     <!-- ナビバーを表示 -->
+    <header>
     <div id='navbar'>
       <!-- 画像の挿入 -->
       <%= link_to image_tag('logo.png', id: 'logo'), maps_path, class: 'maps_path' %>
       <div id='sub_title'>
         このサービスは管理人オススメの靴屋さんを都内中心に紹介するものです。<span class='br'/>
-        いくつかの靴屋さんを周りたい時などに参考にしてみてください。  </div>
+          いくつかの靴屋さんを周りたい時などに参考にしてみてください。  </div>
       <hr>
     </div>
-    <%= yield %>
+    </header>
+      <%= yield %>
+    </div>
   </body>
 </html>
