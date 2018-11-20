@@ -3,72 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #content{
-  width: 65%;
+  width: 100%;
   margin: auto;
+  text-align: left;
+  background: skyblue;
+  //-webkit-text-size-adjust: 100%;
 }
 
 // サーチボックス
-#search_box{
-  width: 20%;
-  background: #f0f0f0;
-  background: antiquewhite;
-  float: left;
-  border-radius: 5px;
-}
-
-.search_box_title{
-  position: relative;
-  display: inline-block;
-  padding: 0 35px;
-  margin: 10px 0 10px 0;
-}
-
-.search_box_title:before, .search_box_title:after{
-  content: '';
-  position: absolute;
-  top: 50%;
-  display: inline-block;
-  width: 30px;
-  height: 1px;
-  background-color: black;
-}
-
-.search_box_title:before{ left: 0; }
-.search_box_title:after { right: 0; }
-
-.search_tree{
-  padding: 0.5em 1em 0.5em 2.3em;
-  position: relative;
-  margin: 0;
-}
-
-.link{
-  line-height: 1.5;
-  padding: 0.5em 0;
-  list-style-type: none!important;
-  border-top: solid 1px white;
-  border-bottom: solid 1px white;
-}
-
-.link:hover{ //マウスオーバー時にアクションを加える。
-  background: peru;
-}
-
-.link_search:hover{ //マウスオーバー時にアクションを加える。
-  background: peru;
-  color: white;
-}
-
-.link:before{
-  font-family: "FontAwesome";
-  content: "\f0da";
-  position: absolute;
-  left: 1em;
-}
-
-/* サーチコンテンツ */
 #search_content{
-  width: 79%;
+  width: 100%;
   text-align: center;
   margin: auto;
   background: white;
@@ -101,12 +45,6 @@
 #search_result{
   display: inline-block;
   margin-left: 10px;
-}
-
-.search_result_station{
-  font-size: 19px;
-  padding: 13px 0 10px 5px;
-  text-align: left;
 }
 
 .search_store{

@@ -1,0 +1,90 @@
+// Place all the styles related to the Maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show_back{
+  width: 100%;
+  margin: auto;
+}
+
+#detail{
+  overflow: hidden;
+  width: 100%;
+}
+
+#detail_content_storename{
+  font-size: 18px;
+  margin: 10px 0 0 5px;
+  text-align: center;
+}
+
+#detail_content_storename hr{
+  margin: 10px 0px 8px 0px;
+}
+
+#detail_image_content{
+  overflow: hidden;
+  background: #eeeeee;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 10px;
+}
+
+#image_function{
+  width: 100%;
+  height: 230px;
+}
+
+.image_div{
+  display: inline-block;
+  padding: 1px;
+  width: 31%;
+  height: 80px;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+}
+
+
+#image_frame{
+  text-align: left;
+}
+
+#detail_content_images{
+  width: 100%;
+}
+
+.detail_content_table{
+  width: 100%;
+  margin-bottom: 10px;
+  border: solid 1px;
+  border-collapse: collapse;
+  word-wrap: break-word;
+  background: white;
+  table-layout: fixed;
+}
+
+.item_head{
+  border: solid 1px #eeeeee;
+  width: 70px;
+  font-weight: 500;
+}
+
+.item_data{
+  border: solid 1px #eeeeee;
+  text-align: left;
+}
+
+//カテゴリをボタン風に表示する。
+.square_category{
+    display: inline-block;
+    padding: 0 0.5em 0.1em 0.5em;
+    text-decoration: none;
+    background: #AAAAAA;
+    color: #FFF;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+

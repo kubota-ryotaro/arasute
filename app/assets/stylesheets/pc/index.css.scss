@@ -1,0 +1,198 @@
+// Place all the styles related to the Maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#content{
+  width: 100%;
+  margin: auto;
+  //display: inline-block;
+  text-align: left;
+  background: pink;
+}
+
+// サーチボックス
+#search_box{
+  width: 20%;
+  background: #f0f0f0;
+  background: antiquewhite;
+  display: inline-block;
+  text-align: center;
+  //float: left;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+.search_box_title{
+  position: relative;
+  display: inline-block;
+  padding: 0 35px;
+  margin: 10px 0 10px 0;
+}
+
+.search_box_title:before, .search_box_title:after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background-color: black;
+}
+
+.search_box_title:before{ left: 0; }
+.search_box_title:after { right: 0; }
+
+.search_tree{
+  padding: 0.5em 1em 0.5em 2.3em;
+  position: relative;
+  margin: 0;
+}
+
+.link{
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none!important;
+  border-top: solid 1px white;
+  border-bottom: solid 1px white;
+}
+
+.link:hover{ //マウスオーバー時にアクションを加える。
+  background: peru;
+}
+
+.link_search:hover{ //マウスオーバー時にアクションを加える。
+  background: peru;
+  color: white;
+}
+
+.link:before{
+  font-family: "FontAwesome";
+  content: "\f0da";
+  position: absolute;
+  left: 1em;
+}
+
+/* サーチコンテンツ */
+#search_content{
+  width: 79%;
+  text-align: center;
+  margin: auto;
+  background: white;
+  float: right;
+}
+
+#search_nav{
+  text-align: left;
+}
+
+#pankuzu_nav{
+  display: inline-block;
+}
+
+#pankuzu_ol{
+  display: flex;
+}
+
+.pankuzu_li{
+  display: flex;
+}
+
+.pankuzu_li:not(:last-child)::after {
+  content: ">";
+  display: block;
+  margin-left: 6px;
+  margin-right: 6px
+}
+
+#search_result{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.search_result_station{
+  font-size: 19px;
+  padding: 13px 0 10px 5px;
+  text-align: left;
+}
+
+.search_store{
+  border-top: dotted 1px black;
+  text-align: left;
+}
+
+.space:before{
+  white-space: pre-wrap;
+  content: "  ";
+}
+
+.contents{
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 13px;
+  background: #eeeeee;
+}
+
+.content{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 14px;
+  margin-top: 13px;
+  width: 170px;
+  text-align: center;
+}
+
+.image_div:hover{
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.detail_btn_text{
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  color: black;
+  background: white;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  border: solid 2px #AAAAAA;
+  width: 153px;
+}
+
+.detail_btn_text:active { //押したとき
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.store_info_msg{
+  padding-top: 0.32em;
+}
+
+.store_info_link{
+  text-decoration: none;
+}
+
+.store_info_link:hover{ //マウスオーバー時にアクションを加える。
+  text-decoration: underline gray;
+}
+
+.store_info_name{
+  font-weight: bold;
+}
+
+.store_info_text{
+  color: #999999;
+  text-align: left;
+}
+
+//カテゴリをボタン風に表示する。
+.store_info_btn{ text-align: left; }
+.store_info_category{
+  display: inline-block;
+  padding: 0 0.3em 0.1em 0.2em;
+  text-decoration: none;
+  background: #AAAAAA;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 10px;
+  color: white;
+}
+

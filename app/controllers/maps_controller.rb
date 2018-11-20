@@ -7,6 +7,14 @@ class MapsController < ApplicationController
     @maps = Map.search(params[:search],params[:category])
     @maps_station_num = Map.station_num(params[:search],params[:category])
     @maps_favorite = Map.favorite
+    request.user_agent       #=> "Mozilla/5.0 (Linux; Android 4.3; Nexus 7 ..."
+    request.device_type      #=> :smartphone
+    request.os               #=> "Android"
+    request.os_version       #=> "4.3"
+    request.browser          #=> "Chrome"
+    request.browser_version  #=> "29.0.1547.72"
+    request.from_pc?         #=> false
+    request.from_smartphone? #=> true
   end
 
   # GET /maps/1

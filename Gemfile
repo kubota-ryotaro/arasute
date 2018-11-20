@@ -64,3 +64,6 @@ gem 'http'
 gem 'seed-fu'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
+# User-Agentをパース
+gem 'rack-user_agent'

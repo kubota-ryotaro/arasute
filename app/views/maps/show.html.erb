@@ -11,9 +11,9 @@
       <div id='detail_content_images', class='detail_content'>
         <%= image_tag "#{@map.station_name}/#{@map.store_name}/main", id: 'image_function', :size => "800x300" %>
         <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub_1.jpg") %>
-          <div id='image_div'>
+          <div id='image_frame'>
             <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub*").count.times do |i| %>
-              <div class='image'><%= image_tag "#{@map.station_name}/#{@map.store_name}/sub_#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", :size => "80x60" %></div>
+              <div class='image_div'><%= image_tag "#{@map.station_name}/#{@map.store_name}/sub_#{i+1}", :onClick => "slideshow(#{i})", id:"image#{i}", class: 'image', :size => "80x60" %></div>
             <% end %>
           </div>
         <% end %>
