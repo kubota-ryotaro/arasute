@@ -26,12 +26,25 @@
     <!-- サイドオープン時メインコンテンツを覆う--> 
     <div class="overlay" id="js__overlay"></div>
 
-
     <nav class="side-menu">
-      <ul>
-        <li><a href="#">メニュータイトル</a></li>
-        <li><a href="#">メニュータイトル</a></li>
-        <li><a href="#">メニュータイトル</a></li>
+      <h4 class='search_box_title'>エリア</h3>
+      <ul class='search_tree'>
+        <li class='link'><%= link_to '吉祥寺', {controller: "maps", action: "index", search: "吉祥寺"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to '下北沢', {controller: "maps", action: "index", search: "下北沢"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to '渋谷', {controller: "maps", action: "index", search: "渋谷"}, {:class => 'link_search'}  %></li>
+      </ul>
+      <h4 class='search_box_title'>カテゴリ</h4>
+      <ul class='search_tree'>
+        <li class='link'><%= link_to 'スニーカー', {controller: "maps", action: "index", category: "スニーカー"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'スポーツ', {controller: "maps", action: "index", category: "スポーツ"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'ビジネスシューズ', {controller: "maps", action: "index", category: "ビジネスシューズ"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'ブーツ', {controller: "maps", action: "index", category: "ブーツ"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'ユニセックス', {controller: "maps", action: "index", category: "ユニセックス"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'キッズ', {controller: "maps", action: "index", category: "キッズ"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'サンダル', {controller: "maps", action: "index", category: "サンダル"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'シューケア', {controller: "maps", action: "index", category: "シューケア"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'メンズ専門', {controller: "maps", action: "index", category: "メンズ専門"}, {:class => 'link_search'}  %></li>
+        <li class='link'><%= link_to 'レディス専門', {controller: "maps", action: "index", category: "レディス専門"}, {:class => 'link_search'}  %></li>
       </ul>
     </nav>
 

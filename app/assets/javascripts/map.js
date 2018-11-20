@@ -28,8 +28,3 @@ $(function () {
     });
   });
 });
-
-$('#js__sideMenuBtn').click(function() {
-  //$('#hamburger-bar').fadeOut(2000);
-  element.parentNode.removeChild(element);
- });
