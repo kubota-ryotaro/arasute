@@ -259,11 +259,6 @@ body{
 
 
 
-.br::before{
-  content: "\A";
-  white-space: pre;
-}
-
 #navbar{
   overflow: hidden;
   background: white;
@@ -280,10 +275,6 @@ body{
   font-size: 0.8em;
   margin-top: 48px;
   //background: pink;
-}
-
-.br_box{
-  height: 10px;
 }
 
 #body_background{

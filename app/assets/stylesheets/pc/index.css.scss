@@ -5,9 +5,7 @@
 #content{
   width: 100%;
   margin: auto;
-  //display: inline-block;
   text-align: left;
-  background: pink;
 }
 
 // サーチボックス
@@ -129,6 +127,7 @@
   margin-top: 0;
   margin-bottom: 10px;
   padding-bottom: 13px;
+  padding-left: 20px;
   background: #eeeeee;
 }
 
@@ -141,7 +140,7 @@
   text-align: center;
 }
 
-.image_div:hover{
+.detail_image_div:hover{
   opacity: 0.7;
   text-decoration: none;
 }

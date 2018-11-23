@@ -6,8 +6,7 @@
   width: 100%;
   margin: auto;
   text-align: left;
-  background: skyblue;
-  //-webkit-text-size-adjust: 100%;
+  position: relative;
 }
 
 // サーチボックス
@@ -16,7 +15,6 @@
   text-align: center;
   margin: auto;
   background: white;
-  float: right;
 }
 
 #search_nav{
@@ -62,20 +60,23 @@
   margin-bottom: 10px;
   padding-bottom: 13px;
   background: #eeeeee;
+  padding-left: 0;
 }
 
 .content{
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 14px;
-  margin-top: 13px;
-  width: 170px;
+  width: 100%;
   text-align: center;
+  padding-top: 10px;
 }
 
-.image_div:hover{
-  opacity: 0.7;
-  text-decoration: none;
+.index_img_div{
+  display: inline-block;
+  width: 100%;
+}
+
+.index_img{
+  width: 345px;
+  height: auto;
 }
 
 .detail_btn_text{
@@ -87,11 +88,16 @@
   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
   font-weight: 500;
   border: solid 2px #AAAAAA;
-  width: 153px;
+  width: 87%;
 }
 
 .detail_btn_text:active { //押したとき
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.store_info{
+  padding: 0 20px 10px 20px;
+  border-bottom: solid 1px #AAAAAA;
 }
 
 .store_info_msg{

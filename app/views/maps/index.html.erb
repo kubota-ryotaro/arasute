@@ -75,9 +75,9 @@
                   <li class='content'>
                     <!-- 画像の挿入 -->
                     <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
-                      <div class="image_div">
+                      <div class="index_img_div">
                         <%= link_to map do %>
-                          <span><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" %></span>
+                          <span><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" , :class => 'index_img' %></span>
                         <% end %>
                       </div>
                     <% end %>

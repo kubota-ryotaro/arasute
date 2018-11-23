@@ -3,7 +3,7 @@ body{
   margin-right: auto;
   margin-left : auto;
   background: white;
-  width: 1000px;
+  width: 980px;
 }
 
 .br::before{
@@ -106,3 +106,6 @@ body{
   left: 1em;
 }
 
+// mobile表示専用のHTML要素
+.side-menu{ display: none; }
+#checked{ display: none; }
