@@ -181,24 +181,23 @@ body{
   color: rgba(255,255,255,.8);
 }
 
-// サイドメニュー ※リストのスタイルは省略 
+// サイドメニュー ※リストのスタイルは省略
 .side-menu {
   position: fixed;
   top: 0;
   right: 0;
   width: 300px;
-  height: 100%;
+  height: 97%;
   padding-top: 10px;
   text-align: left;
   font-size: 13px;
   background-color: #2A408E;
-  //overflow: hidden;
   color: white;
   z-index: 1;
 }
 
-// 開閉用ボタン ※ボタンの細かいスタイルは省略 
-// メインコンテンツ 
+// 開閉用ボタン ※ボタンの細かいスタイルは省略
+// メインコンテンツ
 .wrapper {
   position: relative;
   width: 100%;
@@ -212,8 +211,8 @@ body{
   overflow: hidden;
   bottom: 0;
 }
-// メインコンテンツ内のスタイル ※デザインに併せて適当に 
-// サイドメニューオープン 
+// メインコンテンツ内のスタイル ※デザインに併せて適当に
+// サイドメニューオープン
 .side-open .wrapper,
 .side-open .overlay {
   -webkit-transform: translate3d(-300px, 0, 0);
@@ -252,13 +251,6 @@ body{
   left: 1em;
 }
 
-
-
-
-
-
-
-
 #navbar{
   overflow: hidden;
   background: white;
@@ -274,7 +266,6 @@ body{
 #sub_title{
   font-size: 0.8em;
   margin-top: 48px;
-  //background: pink;
 }
 
 #body_background{
@@ -284,8 +275,8 @@ body{
 
 #map_idx{
   width: 100%;
-  margin: auto;
-  height: 600px;
+  height: 300px;
+  margin-bottom: 5px;
 }
 
 
@@ -293,5 +284,48 @@ body{
 #search_box{
   display: none;
 }
+
+// フッター
+footer{
+  background: #f5f5f6;
+  margin-top: 5px;
+}
+
+#footer_layout{
+  text-align: center;
+}
+
+#footer_logo{
+  display: inline-block;
+  width: 100%;
+  padding-top: 10px;
+}
+
+#footer_logo_img{
+  width: 70%;
+}
+
+.footer_cell{
+  vertical-align: top;
+  text-align: left;
+  font-size: 15px;
+}
+.footer_item{
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+
+.footer_cell:nth-of-type(1), .footer_cell:nth-of-type(2){ display: none; }
+.footer_cell .search_box_title{
+  display: none;
+}
+
+#copyright{
+  text-align: left;
+  vertical-align: bottom;
+}
+
+
+
 
 

@@ -62,18 +62,56 @@
 
     <!-- メインコンテンツ -->
     <div class="wrapper">
-    <!-- ナビバーを表示 -->
-    <header>
-    <div id='navbar'>
-      <!-- 画像の挿入 -->
-      <%= link_to image_tag('logo.png', id: 'logo'), maps_path, class: 'maps_path' %>
-      <div id='sub_title'>
-        このサービスは管理人オススメの靴屋さんを都内中心に紹介するものです。<span class='br'/>
-          いくつかの靴屋さんを周りたい時などに参考にしてみてください。  </div>
-      <hr>
-    </div>
-    </header>
+      <!-- ナビバーを表示 -->
+      <header>
+        <div id='navbar'>
+          <!-- 画像の挿入 -->
+          <%= link_to image_tag('logo.png', id: 'logo'), maps_path, class: 'maps_path' %>
+          <div id='sub_title'>
+            このサービスは管理人オススメの靴屋さんを都内中心に紹介するものです。<span class='br'/>
+              いくつかの靴屋さんを周りたい時などに参考にしてみてください。  </div>
+          <hr>
+        </div>
+      </header>
       <%= yield %>
+      <footer>
+        <div id="footer_layout">
+          <div id="footer_logo">
+            <%= link_to image_tag('logo.png', id: 'footer_logo_img'), maps_path, id: 'footer_maps_path' %>
+            <div id='footer_sub_title'>
+              このサービスは管理人オススメの靴屋さんを都内中心に紹介するものです。<span class='br'/>
+                いくつかの靴屋さんを周りたい時などに参考にしてみてください。  </div>
+          </div>
+          <ul class="footer_cell">
+            <h4 class='footer_search_title'>エリア</h4>
+            <li class="footer_item"><%= link_to '吉祥寺', {controller: "maps", action: "index", search: "吉祥寺"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to '下北沢', {controller: "maps", action: "index", search: "下北沢"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to '渋谷', {controller: "maps", action: "index", search: "渋谷"}, {:class => 'footer_link'}  %></li>
+          </ul>
+          <ul class="footer_cell">
+            <h4 class='footer_search_title'>カテゴリ</h4>
+            <li class="footer_item"><%= link_to 'スニーカー', {controller: "maps", action: "index", category: "スニーカー"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'スポーツ', {controller: "maps", action: "index", category: "スポーツ"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'ビジネスシューズ', {controller: "maps", action: "index", category: "ビジネスシューズ"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'ブーツ', {controller: "maps", action: "index", category: "ブーツ"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'ユニセックス', {controller: "maps", action: "index", category: "ユニセックス"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'キッズ', {controller: "maps", action: "index", category: "キッズ"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'サンダル', {controller: "maps", action: "index", category: "サンダル"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'シューケア', {controller: "maps", action: "index", category: "シューケア"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'メンズ専門', {controller: "maps", action: "index", category: "メンズ専門"}, {:class => 'footer_link'}  %></li>
+            <li class="footer_item"><%= link_to 'レディス専門', {controller: "maps", action: "index", category: "レディス専門"}, {:class => 'footer_link'}  %></li>
+          </ul>
+          <ul class="footer_cell">
+            <h4 class='footer_search_title'>靴屋サーチについて</h4>
+            <li class="footer_item"><a href="/about">靴屋サーチとは</a></li>
+            <li class="footer_item"><a href="/use">靴屋サーチの便利な使い方</a></li>
+            <li class="footer_item"><a href="/contact">お問い合わせ</a></li>
+            <li class="footer_item"><a href="/service">利用規約</a></li>
+          </ul>
+          <small id="copyright">©&nbsp;2018&nbsp;kubota-ryotaro</small>
+        </div>
+      </footer>
     </div>
+
   </body>
 </html>

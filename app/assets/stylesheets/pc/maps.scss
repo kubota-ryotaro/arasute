@@ -19,6 +19,7 @@ body{
   height: 50px;
   width: auto;
   display: inline-block;
+  text-decoration: none;
 }
 
 .maps_path:hover{ background: white; }
@@ -39,8 +40,8 @@ body{
 
 #map_idx{
   width: 100%;
-  margin: auto;
-  height: 600px;
+  height: 400px;
+  margin-bottom: 5px;
 }
 
 
@@ -109,3 +110,67 @@ body{
 // mobile表示専用のHTML要素
 .side-menu{ display: none; }
 #checked{ display: none; }
+
+// フッター
+footer{
+  background: antiquewhite;
+  margin-top: 5px;
+}
+
+#footer_layout{
+  text-align: center;
+}
+
+#footer_logo{
+  display: inline-block;
+  width: 40%;
+  padding-top: 30px;
+}
+
+#footer_logo_img{
+  width: 70%;
+}
+
+.footer_cell{
+  display: inline-block;
+  list-style: none;
+  vertical-align: top;
+}
+
+#copyright{
+  text-align: center;
+}
+
+.footer_search_title{
+  position: relative;
+  display: inline-block;
+  padding: 0 28px;
+  margin: 10px 0 10px 0;
+}
+
+.footer_search_title:before, .footer_search_title:after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 23px;
+  height: 1px;
+  background-color: black;
+}
+
+.footer_search_title:before{ left: 0; }
+.footer_search_title:after { right: 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
