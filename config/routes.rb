@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'maps/terms'
+  get 'maps/contact'
+  get 'maps/about'
   resources :maps
   root to: 'maps#index'
   get 'maps/show'

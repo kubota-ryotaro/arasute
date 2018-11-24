@@ -15,9 +15,9 @@
     <%= javascript_include_tag "map.js" %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <% if request.from_pc? then %>
-    <%= stylesheet_link_tag    'pc/index', 'pc/index_favorite', 'pc/maps', 'pc/show', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'pc/index', 'pc/index_favorite', 'pc/maps', 'pc/show', 'pc/about', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% else %>
-    <%= stylesheet_link_tag    'mobile/index', 'mobile/index_favorite', 'mobile/maps', 'mobile/show',  media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'mobile/index', 'mobile/index_favorite', 'mobile/maps', 'mobile/show', 'mobile/about',  media: 'all', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <% end %>
   </head>
@@ -102,11 +102,10 @@
             <li class="footer_item"><%= link_to 'レディス専門', {controller: "maps", action: "index", category: "レディス専門"}, {:class => 'footer_link'}  %></li>
           </ul>
           <ul class="footer_cell">
-            <h4 class='footer_search_title'>靴屋サーチについて</h4>
-            <li class="footer_item"><a href="/about">靴屋サーチとは</a></li>
-            <li class="footer_item"><a href="/use">靴屋サーチの便利な使い方</a></li>
-            <li class="footer_item"><a href="/contact">お問い合わせ</a></li>
-            <li class="footer_item"><a href="/service">利用規約</a></li>
+            <h4 class='footer_search_title'>靴屋リサーチについて</h4>
+            <li class="footer_item"><a href="/maps/about">靴屋リサーチとは</a></li>
+            <li class="footer_item"><a href="/maps/contact">お問い合わせ</a></li>
+            <li class="footer_item"><a href="/maps/terms">利用規約</a></li>
           </ul>
           <small id="copyright">©&nbsp;2018&nbsp;kubota-ryotaro</small>
         </div>

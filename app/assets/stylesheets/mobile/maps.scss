@@ -3,7 +3,7 @@ body{
   margin-right: auto;
   margin-left : auto;
   background: white;
-  width: 375px;
+  //width: 375px;
 }
 
 .maps_path{
@@ -90,7 +90,6 @@ body{
     -ms-transform: none;
     transform: none;
     opacity: 1;
-    z-index: 2;
 }
 
 .check:checked ~ .wrapper {
@@ -133,7 +132,6 @@ body{
     background: rgba(0,0,0,.5);
     visibility: visible;
     opacity: 1;
-    z-index: 3;
 }
 
 
@@ -154,7 +152,6 @@ body{
   background: rgba(0,0,0,0);
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
-  z-index: 3;
 }
 .overlay::after {
   visibility: hidden;
@@ -193,7 +190,6 @@ body{
   font-size: 13px;
   background-color: #2A408E;
   color: white;
-  z-index: 1;
 }
 
 // 開閉用ボタン ※ボタンの細かいスタイルは省略
@@ -207,7 +203,6 @@ body{
   background: #F8F8F8;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
-  z-index: 2;
   overflow: hidden;
   bottom: 0;
 }
@@ -316,9 +311,8 @@ footer{
 }
 
 .footer_cell:nth-of-type(1), .footer_cell:nth-of-type(2){ display: none; }
-.footer_cell .search_box_title{
-  display: none;
-}
+.footer_cell .search_box_title{ display: none; }
+.footer_search_title{ display: none; }
 
 #copyright{
   text-align: left;
