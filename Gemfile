@@ -67,3 +67,5 @@ gem 'jquery-ui-rails'
 
 # User-Agentをパース
 gem 'rack-user_agent'
+
+gem 'rename'
