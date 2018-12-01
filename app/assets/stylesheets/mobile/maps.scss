@@ -45,7 +45,7 @@ body{
     display: block;
     width: 30px;
     height: 4px;
-    background: black;
+    background: #000066;
     -webkit-transition: all .5s;
     transition: all .5s;
     -webkit-transform-origin: left top;
@@ -252,7 +252,7 @@ body{
 }
 
 #logo{
-  height: 50px;
+  height: 40px;
   width: auto;
 }
 
@@ -260,7 +260,7 @@ body{
 
 #sub_title{
   font-size: 0.8em;
-  margin-top: 48px;
+  margin-top: 42px;
 }
 
 #body_background{
