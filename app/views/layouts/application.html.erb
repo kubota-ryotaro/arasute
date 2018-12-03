@@ -79,8 +79,8 @@
           <div id="footer_logo">
             <%= link_to image_tag('logo.png', id: 'footer_logo_img'), maps_path, id: 'footer_maps_path' %>
             <div id='footer_sub_title'>
-              このサービスは管理人オススメの靴屋さんを都内中心に紹介するものです。<span class='br'/>
-                いくつかの靴屋さんを周りたい時などに参考にしてみてください。  </div>
+                靴サーチでは、そのお店で扱っている靴のサイズを表記していくことで「気に入ったけどサイズがなくて買えなかった」というような悩みにも応えていきます。<sup>注１</sup>
+            </div>
           </div>
           <ul class="footer_cell">
             <h4 class='footer_search_title'>エリア</h4>
@@ -102,11 +102,12 @@
             <li class="footer_item"><%= link_to 'レディス専門', {controller: "maps", action: "index", category: "レディス専門"}, {:class => 'footer_link'}  %></li>
           </ul>
           <ul class="footer_cell">
-            <h4 class='footer_search_title'>靴屋リサーチについて</h4>
-            <li class="footer_item"><a href="/maps/about">靴屋リサーチとは</a></li>
+            <h4 class='footer_search_title'>靴サーチについて</h4>
+            <li class="footer_item"><a href="/maps/about">靴サーチとは</a></li>
             <li class="footer_item"><a href="/maps/contact">お問い合わせ</a></li>
             <li class="footer_item"><a href="/maps/terms">利用規約</a></li>
           </ul>
+          <div class='annotation'><sup>*1</sup>靴のサイズは当サイト運営者が調査するもので店舗オーナー様による表記ではないので、誤りがある場合があります。</div>
           <small id="copyright">©&nbsp;2018&nbsp;kubota-ryotaro</small>
         </div>
       </footer>

@@ -16,7 +16,7 @@ body{
 }
 
 #logo{
-  height: 60px;
+  height: 50px;
   width: auto;
   display: inline-block;
   text-decoration: none;
@@ -130,7 +130,7 @@ footer{
 }
 
 #footer_logo_img{
-  width: 70%;
+  width: 60%;
 }
 
 .footer_cell{
@@ -163,7 +163,13 @@ footer{
 .footer_search_title:before{ left: 0; }
 .footer_search_title:after { right: 0; }
 
-
+//注釈
+.annotation {
+  text-align: left;
+  margin-left: 40px;
+  width: 40%;
+  font-size: 10px;
+}
 
 
 
