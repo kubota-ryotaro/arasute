@@ -16,6 +16,10 @@
             <div class='fav_store_image'><!-- 画像の挿入 -->
               <%= image_tag("#{map.station_name}/#{map.store_name}/main", :class => 'fav_image', :size => "270x180") %>
             </div>
+                    <!-- 詳細ボタン -->
+                    <%= link_to map, :class => 'detail_btn distribute_btn' do %>
+                      <div class='detail_btn_text'>詳細を見る</div>
+                    <% end %>
               <table class='fav_content_table'>
                 <tbody>
                   <tr>
