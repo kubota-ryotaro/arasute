@@ -46,7 +46,7 @@
           </tr>
           <tr>
             <th class='item_head'>HP</th>
-            <td class='item_data'><%= simple_format(@map.HP) %></td>
+            <td class='item_data'><%= link_to(@map.HP, @map.HP, :target => ["_blank"]) %></td>
           </tr>
           <tr>
             <th class='item_head'>電話番号</th>
