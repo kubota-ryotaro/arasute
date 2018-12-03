@@ -14,5 +14,6 @@ csv.each do |maps|
     s.HP = maps[9]
     s.text = maps[10]
     s.favorite_flag = maps[11]
+    s.size = maps[12]
   end
 end
