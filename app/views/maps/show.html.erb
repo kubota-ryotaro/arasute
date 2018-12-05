@@ -9,7 +9,7 @@
     <div id='detail_image_content'>
       <!-- 画像 -->
       <div id='detail_content_images', class='detail_content'>
-        <%= image_tag "#{@map.station_name}/#{@map.store_name}/main", id: 'image_function', :size => "800x300" %>
+        <%= image_tag "#{@map.station_name}/#{@map.store_name}/sub_1", id: 'image_function', :size => "800x300" %>
         <% if File.exist?("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub_1.jpg") %>
           <div id='image_frame'>
             <% Dir.glob("#{Rails.root}/app/assets/images/#{@map.station_name}/#{@map.store_name}/sub*").count.times do |i| %>
