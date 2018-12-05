@@ -25,18 +25,18 @@
 
 #detail_image_content{
   overflow: hidden;
-  background: #eeeeee;
-  padding: 14px;
+  background: floralwhite;
+  padding: 10px 14px 14px 14px;
   margin-bottom: 10px;
 }
 
 #image_function{
-  width: 300px;
-  height: 200px;
+  height: 350px;
+  width: auto;
 }
 
 .image{
-  width: 100%;
+  width: auto;
   height: 66px;
   display: inline-block;
   padding-right: 2px;
@@ -46,23 +46,16 @@
   text-align: left;
 }
 
-#image_frame{
-  text-align: left;
-}
-
 .detail_image_div{
   display: inline-block;
-  width: 32%;
 }
 
 #detail_content_images{
-  width: 40%;
-  float: left;
+  width: 100%;
 }
 
 .detail_content_table{
-  width: 59%;
-  float: right;
+  width: 100%;
   margin-bottom: 10px;
   border: solid 1px;
   border-collapse: collapse;
