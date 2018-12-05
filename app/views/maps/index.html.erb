@@ -28,7 +28,7 @@
                   </tr>
                   <tr>
                     <th class='fav_item_head'>テキスト</th>
-                    <td class='item_data'><%= simple_format(map.text, :id => 'detail_text') %></td>
+                    <td class='item_data'><%= simple_format(map.text[0, 130] + '...', :id => 'detail_text') %></td>
                   </tr>
                   <tr>
                     <th class='fav_item_head'>カテゴリ</th>
