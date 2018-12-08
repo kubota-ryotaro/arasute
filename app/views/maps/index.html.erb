@@ -78,10 +78,10 @@
                 <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
                   <li class='content'>
                     <!-- 画像の挿入 -->
-                    <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.png") %>
+                    <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/sub_1.jpg") %>
                       <div class="index_img_div">
                         <%= link_to map do %>
-                          <span><%= image_tag "#{map.station_name}/#{map.store_name}/main", :size => "170x120" , :class => 'index_img' %></span>
+                          <span><%= image_tag "#{map.station_name}/#{map.store_name}/sub_1", :size => "170x120" , :class => 'index_img' %></span>
                         <% end %>
                       </div>
                     <% end %>
