@@ -78,7 +78,7 @@
                 <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
                   <li class='content'>
                     <!-- 画像の挿入 -->
-                    <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/main.jpg") or File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/sub_1.jpg") %>
+                    <% if File.exist?("#{Rails.root}/app/assets/images/#{map.station_name}/#{map.store_name}/sub_1.jpg") %>
                       <div class="index_img_div">
                         <%= link_to map do %>
                           <span><%= image_tag "#{map.station_name}/#{map.store_name}/sub_1", :size => "170x120" , :class => 'index_img' %></span>
@@ -138,27 +138,23 @@
       // 入力した駅にヒットしたそれぞれの店を出力していく。
       <% @maps.each do |map| %>
         (function(){
-          var address = "住所：<%= map.address %>";
-          var store_name = "<%= map.store_name %>";
-          var infowindow = new google.maps.InfoWindow({ content: "店名: <%= map.store_name %><br><%= map.address %>" });
+          if( <%= map.station_name.try(:exclude?, "駅") %>) {
+            var address = "住所：<%= map.address %>";
+            var store_name = "<%= map.store_name %>";
+            var infowindow = new google.maps.InfoWindow({ content: "店名: <%= map.store_name %><br><%= map.address %>" });
 
-          // マーカーの設定
-          var marker = new google.maps.Marker({
-            position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
-            map: map,
-            title: store_name,
-            icon: null,
-            animation: null
-          });
+            // マーカーの設定
+            var marker = new google.maps.Marker({
+              position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
+              map: map,
+              title: store_name,
+              icon: null,
+              animation: null
+            });
 
-          // 駅のマーカーだけアイコンを変える。
-          if( <%= map.station_name.try(:include?, "駅") %>) {
-            marker.animation = google.maps.Animation.BOUNCE
-            marker.icon = { url: '<%= asset_path 'icon.png' %>' }
+            // クリックしたら吹き出しを出力し、店名と住所を表示する。
+            marker.addListener('click', function() { infowindow.open(map, marker); });
           }
-
-          // クリックしたら吹き出しを出力し、店名と住所を表示する。
-          marker.addListener('click', function() { infowindow.open(map, marker); });
         })();
   <% end %>
   }
