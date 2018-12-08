@@ -107,11 +107,7 @@
           </ul>
         <% end %>
         <!-- 地図を表示 -->
-        <% if params[:search].present? %>
           <div id='map_idx'></div>
-        <% else %>
-          <div id='map_idx' hidden></div>
-        <% end %>
       </div>
     </div>
   <% end %>
@@ -123,7 +119,10 @@
 <script type="text/javascript">
   function initMap() {
     // 入力した駅を中心とする地図のセッティング
-    <% @maps.each do |map| %>
+    <% if params[:search].present? %>// 駅で絞り込みをかけたら、その駅を中心とする。
+      <% @maps.each do |map| %>
+        if(typeof(flag) != 'undefined') { //駅データ取得のチェック
+        } else {
         if( <%= map.station_name.try(:include?, "駅") %> ) {
           var latlng = {lat: <%= map.latitude %>, lng: <%= map.longitude %>};
           var map = new google.maps.Map(document.getElementById('map_idx'), {
@@ -132,8 +131,22 @@
           });
           var transitLayer = new google.maps.TransitLayer();
           transitLayer.setMap(map);
+          // 駅データを取得したらフラグを立てる。
+          var flag = 'ok';
         }
+        }
+      <% end %>
+    <% else %>  //カテゴリで絞り込みをかけたら、一律で渋谷駅を中心とする。
+      var latlng = {lat: 35.658, lng: 139.702};
+      var map = new google.maps.Map(document.getElementById('map_idx'), {
+        zoom: 11,
+        center: latlng
+      });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
     <% end %>
+
+
 
       // 入力した駅にヒットしたそれぞれの店を出力していく。
       <% @maps.each do |map| %>
