@@ -113,6 +113,16 @@ body{
 .side-menu{ display: none; }
 #checked{ display: none; }
 
+// ページ内移動
+.page_top a{
+  color: orange;
+}
+
+.page_top{
+  float: right;
+  margin-right: 30px;
+}
+
 // フッター
 footer{
   background: #DDDDDD;
