@@ -83,29 +83,27 @@ body{
   padding: 0.5em 1em 0.5em 2.3em;
   position: relative;
   margin: 0;
+  list-style: disc;
 }
 
-.link{
+.link_search{
   line-height: 1.5;
   padding: 0.5em 0;
-  list-style-type: none!important;
   border-top: solid 1px white;
   border-bottom: solid 1px white;
 }
 
-.link:hover{ //マウスオーバー時にアクションを加える。
-  background: peru;
-}
-
 .link_search:hover{ //マウスオーバー時にアクションを加える。
   background: peru;
-  color: white;
+  color: ivory;
 }
 
-.link:before{
+.link_mark:before{
   font-family: "FontAwesome";
-  content: "\f0da";
+  content: "\f111";
+  font-size: 0.5em;
   position: absolute;
+  margin-top: 9px;
   left: 1em;
 }
 
