@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// スペース用
+.space:before{
+  white-space: pre-wrap;
+  content: "  ";
+}
+
 #content{
   width: 100%;
   margin: auto;
@@ -45,20 +51,89 @@
   margin-left: 10px;
 }
 
+.label_text {
+  padding-top: 5px;
+  display: inline-block;
+}
+
 .search_store{
   border-top: dotted 1px black;
   text-align: left;
 }
 
-.space:before{
-  white-space: pre-wrap;
-  content: "  ";
+// カテゴリで絞り込み時、labelクリックするまでコンテンツを閉じておく。
+.search_store_category {
+  border-top: dotted 1px black;
+  text-align: left;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+  margin: 0;
+  width: 100%;
 }
+
+// labelクリックでコンテンツを表示する。
+input:checked ~ .search_store_category {
+  padding-top: 5px;
+  height: auto;
+  opacity: 1;
+}
+
+// チェックボックスを非表示にする。
+.contents input {
+  display: none;
+}
+
+// アコーディオンボタンを設置する。
+.grad_btn {
+  display: inline-block;
+  padding: 0 0.3em 0 0.4em;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 0 20px 5px 0;
+  color: white;
+  float: right;
+  width: 20px;
+  text-align: center;
+}
+
+// labelにプラスマークを付ける。
+.triangle {
+  display: inline-block;
+  position: relative;
+  margin: 3px 10px 1px 7px;
+  padding: 0;
+  width: 4px;
+  height: 20px;
+  background: #000;
+  transform: rotate(0deg);
+}
+
+.triangle:before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 20px;
+  height: 4px;
+  margin-top: -2px;
+  background: #000;
+}
+
+// labelクリックでプラスマークをマイナスマークにする。
+input:checked ~ label .triangle {
+  height: 0px;
+  margin: 13px 2px 10px 0;
+}
+
+
 
 .contents{
   margin-top: 0;
   margin-bottom: 10px;
-  padding-bottom: 13px;
   background: #eeeeee;
   padding-left: 0;
 }

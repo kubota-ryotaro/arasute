@@ -78,8 +78,17 @@
         <% @maps_station_num.each do |station, num| %><!-- 駅の数だけdivを作る。 -->
           <ul class="contents">
             <!-- 駅名とカテゴリと検索結果数を表示 -->
-            <div class='search_result_station'><%= station %>駅周辺<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
-            <div class='search_store'>
+            <input type="checkbox" id="label_<%= station %>"/>
+            <label for="label_<%= station %>" class='search_result_station'>
+              <div class="label_text"><%= station %>駅周辺<span class='space'></span><span><%= params[:category] if params[:category].present? %></span><span class='space'></span>検索結果 <%= num %>件</div>
+              <!-- カテゴリ絞り込み時のみ、アコーディオンボタンを設置する。-->
+              <% if params[:category].present? %>
+                <div class='grad_btn'><span class="triangle"></span></div>
+              <% end %>
+            </label>
+
+            <!-- エリアで絞り込んだ時と、カテゴリで絞り込んだ時のcssを分ける。 -->
+            <div class="search_store<%= "_category" if params[:category].present? %>">
               <% @maps.each do |map| %>
                 <% if map.store_name.present? and map.station_name === station %><!-- 駅名ごとに振り分ける。 -->
                   <li class='content'>
