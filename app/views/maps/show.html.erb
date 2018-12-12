@@ -22,7 +22,11 @@
         <tbody>
           <tr>
             <th class='fav_item_head'>エリア</th>
-            <td class='item_data'><div class='square_area'><%= @map.station_name %></td>
+            <td class='item_data'>
+              <%= link_to({controller: "maps", action: "index", search: "#{@map.station_name}"}) do  %>
+                <div class='square_area'><%= @map.station_name %></div>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th class='item_head'>テキスト</th>

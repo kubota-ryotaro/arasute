@@ -64,6 +64,7 @@
   padding-top: 3px;
 }
 
+// エリアをボタン風に表示する。
 .square_area{
    display: inline-block;
     padding: 0.1em 0.5em 0.2em 0.5em;
@@ -72,6 +73,14 @@
     color: #FFF;
     border-radius: 5px;
     margin-top: 5px;
+}
+
+// エリアボタンクリック時にアクションを加える。
+.square_area:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
 }
 
 .distribute_btn {
