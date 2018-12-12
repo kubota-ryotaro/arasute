@@ -76,18 +76,7 @@
 }
 
 .item_data_size {
-  text-align: center;
-  width: 48%;
-  display: inline-block;
   margin-top: 0.5em;
-}
-
-.item_data_size:nth-of-type(2) {
-  border-left: dashed 1px #dddddd;
-}
-
-.item_data_size div {
-  margin-top: 3px;
 }
 
 //カテゴリをボタン風に表示する。

@@ -43,8 +43,7 @@
           <tr>
             <th class='item_head'>サイズ</th>
             <td class='item_data'>
-              <div class='item_data_size'><span class='item_data_size_hd'>ー メンズ ー</span><%= simple_format(@map.size, {}, wrapper_tag: "div") %></div>
-              <div class='item_data_size'><span class='item_data_size_hd'>ー レディース ー</span><%= simple_format(@map.size, {}, wrapper_tag: "div") %></div>
+              <div class='item_data_size'><%= simple_format(@map.size, {}, wrapper_tag: "div") %></div>
             </td>
           </tr>
           <tr>
