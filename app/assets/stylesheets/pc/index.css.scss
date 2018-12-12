@@ -196,3 +196,15 @@
   color: white;
 }
 
+// ボタンタグの下線を消す。
+.store_info_btn a {
+  text-decoration: none;
+}
+
+// ボタンクリック時にアクションを加える。
+.store_info_category:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}

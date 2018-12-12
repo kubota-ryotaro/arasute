@@ -36,7 +36,9 @@
             <th class='item_head'>カテゴリ</th>
             <td class='item_data'>
               <% @map.category[1, @map.category.length].split("#").each do |category| %>
-                <div class="square_category"><%= category %></div>
+                <%= link_to({controller: "maps", action: "index", category: "#{category}"}) do  %>
+                  <div class='square_category'><%= category %></div>
+                <% end %>
               <% end %>
             </td>
           </tr>
